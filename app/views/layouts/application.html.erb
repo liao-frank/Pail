@@ -38,7 +38,7 @@
 				</div>
 				<div class="pure-u-1-3">
 					<div class="account">
-						<% if logged_in %>
+						<% if logged_in? %>
 							Hello <% current_user.proper_name %> || <%= link_to login_path do %> Logout <% end %>
 						<% else %>
 							<%= link_to(login_path) do %>
@@ -56,9 +56,20 @@
 	<div class="header-shadow yellow"></div>
 
 	<div id="content">
-		<div id="load-animation">
-			Test
+		<style> 
+			#load-animation {
+				-webkit-animation-duration: 5s;
+				-webkit-animation-iteration-count: infinite;
+			}
+		</style>
+		<div id="load-animation" style="position: relative; display: none;">
+			Loading...
 		</div>
+		<script>
+			$(document).ready(function() {
+				$('#load-animation').animateCss('flash');
+			});
+		</script>
 
 		<% flash.each do |name, msg| %>
 			<%= msg %>
