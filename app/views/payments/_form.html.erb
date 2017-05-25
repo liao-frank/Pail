@@ -13,7 +13,7 @@
 	<div class="pure-form">
 		<div class="field">
 			<%= f.label :payee_id %><br>
-			<%= f.collection_select :payee_id, User.alphabetical.all - [current_user], :id, :name %>
+			<%= f.collection_select :payee_id, @payees - [current_user], :id, :name %>
 			<style>
 				.user-photo {
 					height: 64px;
