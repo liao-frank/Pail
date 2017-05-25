@@ -2,7 +2,7 @@ class CreateOrganizationUsers < ActiveRecord::Migration
   def change
     create_table :organization_users do |t|
       t.integer :org_id
-      t.title :user_id
+      t.integer :user_id
       t.string :role
       t.string :title
 
