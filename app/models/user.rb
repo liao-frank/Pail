@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   validates_presence_of :password_confirmation, on: :create 
   validates_confirmation_of :password, on: :create, message: "does not match"
   validates_length_of :password, minimum: 4, message: "must be at least 4 characters long", allow_blank: true
-  validate :username_is_not_a_duplicate, on :create
+  validate :username_is_not_a_duplicate, on: :create
 
   def already_exists?
     User.where(name: self.name) == 1
