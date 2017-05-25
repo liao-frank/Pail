@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @payer_payments = Payment.for_payer(current_user.id).chronological.all
+    @payee_payments = Payment.for_payee(current_user.id).chronological.all
   end
 
   # GET /users/new
