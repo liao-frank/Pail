@@ -1,4 +1,15 @@
+<style type="text/css">
+	.body {
+		font-family: 'Segoe UI';
+		margin: 0;
+		min-width: 100%;
+		min-height: 100%;
+	}
+
+</style>
+
 <% if logged_in? %>
-  <%= link_to "click here to pay someone!", new_payment_path %><br>
-  <%= link_to "click here to view your payments", payments_path %>
+<%= link_to "Click here to pay someone", new_payment_path %><br>
+<%= link_to "Click here to view your payments", payments_path %>
 <% end %>
+
