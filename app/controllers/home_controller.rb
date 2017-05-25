@@ -30,6 +30,7 @@ class HomeController < ApplicationController
 			return USERIMAGE_DIR + "/no-image.jpg"
 		end
 	end
+	helper_method :getUserImagePath
 
 	def getFundraiserImagePath(fundraiser_name) # Obtain file path for a fundraiser's profile image
 		if Rails.application.assets.find_asset FUNDRAISER_NAME_DIR + "/#{fundraiser_name}.jpg"
@@ -44,5 +45,5 @@ class HomeController < ApplicationController
 	def getImage(username) # Returns path to the image
 		username + ".jpg"
 	end
-	helper_method :getImage
+	helper_method :getFundraiserImagePath
 end
