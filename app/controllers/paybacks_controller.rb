@@ -25,7 +25,7 @@ class PaybacksController < ApplicationController
   # POST /paybacks.json
   def create
     @payback = Payback.new(payback_params)
-
+    
     respond_to do |format|
       if @payback.save
         format.html { redirect_to @payback, notice: 'Payback was successfully created.' }
