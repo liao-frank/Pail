@@ -2,10 +2,12 @@ class PaymentsController < ApplicationController
   before_action :set_payment, only: [:show, :edit, :update, :destroy, :reduce_add_funds, :create_payback]
   
   def create_payback
-    info = {payment_id: payment_id, date: Date.current}
-    reduce_add_funds(@payment.payee_id, @payment,payer_id)
+    info = {payment_id: @payment.id, date: Date.current}
+    payee_id = @payment.payee_id
+    payer_id = @payment.payer_id
+    reduce_add_funds(payee_id, payer_id)
     Payback.create(info)
-    notice: 'Payment was successfully paid back.'
+    redirect_to payments_path, notice
   end
 
   def reduce_add_funds(payer_id, payee_id)
