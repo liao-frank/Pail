@@ -20,7 +20,7 @@ html {
 }
 
 body {
-	font-family: Arial;
+	font-family: 'Segoe UI';
 
 	margin: 0;
 	min-width: 100%;
@@ -35,7 +35,9 @@ body {
 }
 
 #header #search-form input {
+	color: black;
 	width: 350px;
+	height: 35px;
 }
 
 #header .account {
@@ -83,6 +85,10 @@ body {
 .small-basic-container {
 	margin: auto;	
 	width: 500px;
+}
+
+.center {
+	margin: 0 auto;
 }
 
 #load-animation {
