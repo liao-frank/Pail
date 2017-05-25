@@ -5,7 +5,7 @@ class Organization < ActiveRecord::Base
 	has_one :orgnaization
 
 	# Validations
-	validates :organization_not_a_duplicate, on :create
+	validates :organization_not_a_duplicate, on: :create
 
 	def already_exists? # Function to check if the organization exists in the database
 		Organization.where(name: self.name) == 1 # Access the database for any organizations with the name, if there exists one already, returns true

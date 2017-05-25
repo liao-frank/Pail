@@ -1,22 +1,28 @@
-<h3>Log In</h3>
-<div class="row">
-  <div class="small-7 columns">
-    <%= form_tag sessions_path do %>
-      <div class="control-group">
-        <%= label_tag :email %>
-        <div class="controls">
-          <%= text_field_tag :email, params[:email] %>
-        </div>
-      </div>
+<style>
+	#content .center {
+		width: 300px;
+	}
+	#content label {
+		font-size:;
+	}
+	#content input {
+		width: 300px;
+		height: 35px;
 
-      <div class="control-group">
-        <%= label_tag :password %>
-        <div class="controls">
-          <%= password_field_tag :password %>
-        </div>
-      </div>
-      
-      <div class="actions"><%= submit_tag "Log In" %></div>
-    <% end %>
-  </div>
+		margin-bottom: 20px;
+	}
+</style>
+
+
+<div class="center">
+	<h3>Log In</h3>
+	<%= form_tag(sessions_path, class: "pure-form") do %>
+			<%= label_tag :email %><br/>
+			<%= text_field_tag :email, params[:email] %>
+			<br/>
+			<%= label_tag :password %><br/>
+			<%= password_field_tag :password %>
+		
+		<div class="actions"><%= submit_tag "Log In" %></div>
+	<% end %>
 </div>

@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
 	def home
+		@payments = nil
+		@fundraisers = nil
 	end
 
 	def about
