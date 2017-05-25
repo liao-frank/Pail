@@ -11,63 +11,59 @@
 		</div>
 	<% end %>
 	<div class="pure-form">
-		<div class="field">
-			<%= f.label :payee_id %><br>
-			<%= f.collection_select :payee_id, @payees - [current_user], :id, :name %>
-			<style>
-				.user-photo {
-					height: 64px;
-					border-radius: 8px;
-					margin-right: 10px;
-					margin-bottom: 10px;
-				}
-			</style>
-			<span class="photo-one">
-				<%= image_tag('users/jason.jpg', class: 'user-photo', id: 'jason-photo') %>
-				<script>
-					$('#jason-photo').click(function() {
-						$('#payment_payee_id').val("4");
-					});
-				</script>
-			</span>
-			<span class="photo-two">
-				<%= image_tag "users/sarah.jpg", class: 'user-photo', id: 'sarah-photo' %>
-				<script>
-					$('#sarah-photo').click(function() {
-						$('#payment_payee_id').val("5");
-					});
-				</script>
-			</span>
-			<span class="photo-three">
-				<%= image_tag "users/louie.jpg", class: 'user-photo', id: 'louie-photo' %>
-				<script>
-					$('#louie-photo').click(function() {
-						$('#payment_payee_id').val("7");
-					});
-				</script>
-			</span>
-			<span class="photo-four">
-				<%= image_tag "users/firoze.jpg", class: 'user-photo', id: 'firoze-photo' %>
-				<script>
-					$('#firoze-photo').click(function() {
-						$('#payment_payee_id').val("6");
-					});
-				</script>
-			</span>
-			<script>
-				$('.user-photo').mouseenter(function(){
-					$(this).animateCss('bounce');
-				});
-
-				$('.user-photo').click(function(){
-					$(this).animateCss('bounce');
-				});
-			</script>
-		</div>
-		<% if @source != "personal" %>
+		<% unless @source == "fundraiser" %>
 			<div class="field">
-				<%= f.label :fundraiser_id %><br>
-				<%= f.number_field :fundraiser_id %>
+				<%= f.label :payee_id %><br>
+				<%= f.collection_select :payee_id, @payees - [current_user], :id, :name %>
+				<style>
+					.user-photo {
+						height: 64px;
+						border-radius: 8px;
+						margin-right: 10px;
+						margin-bottom: 10px;
+					}
+				</style>
+				<span class="photo-one">
+					<%= image_tag('users/jason.jpg', class: 'user-photo', id: 'jason-photo') %>
+					<script>
+						$('#jason-photo').click(function() {
+							$('#payment_payee_id').val("4");
+						});
+					</script>
+				</span>
+				<span class="photo-two">
+					<%= image_tag "users/sarah.jpg", class: 'user-photo', id: 'sarah-photo' %>
+					<script>
+						$('#sarah-photo').click(function() {
+							$('#payment_payee_id').val("5");
+						});
+					</script>
+				</span>
+				<span class="photo-three">
+					<%= image_tag "users/louie.jpg", class: 'user-photo', id: 'louie-photo' %>
+					<script>
+						$('#louie-photo').click(function() {
+							$('#payment_payee_id').val("7");
+						});
+					</script>
+				</span>
+				<span class="photo-four">
+					<%= image_tag "users/firoze.jpg", class: 'user-photo', id: 'firoze-photo' %>
+					<script>
+						$('#firoze-photo').click(function() {
+							$('#payment_payee_id').val("6");
+						});
+					</script>
+				</span>
+				<script>
+					$('.user-photo').mouseenter(function(){
+						$(this).animateCss('bounce');
+					});
+
+					$('.user-photo').click(function(){
+						$(this).animateCss('bounce');
+					});
+				</script>
 			</div>
 		<% end %>
 		<div class="field">

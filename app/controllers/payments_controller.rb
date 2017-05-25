@@ -33,9 +33,13 @@ class PaymentsController < ApplicationController
 
   # GET /payments/new
   def new
-    @source = params[:source]
     @payment = Payment.new
     @payees = User.alphabetical.all.to_a - [current_user]
+    @source = params[:source]
+    if @source == "fundraiser"
+      fundraiser = Fundraiser.find(params[:fund_id])
+      @payee = User.find(fundraiser.owner_id)
+    end
   end
 
   # GET /payments/1/edit
@@ -48,6 +52,9 @@ class PaymentsController < ApplicationController
     @payment = Payment.new(payment_params)
     @payment.date = Date.current
     @payment.payer_id = current_user.id
+    unless @payee.nil?
+      @payment.payee_id = @payee.id
+    end
     respond_to do |format|
       if @payment.save
         format.html { 
