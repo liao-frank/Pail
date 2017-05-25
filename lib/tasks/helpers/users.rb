@@ -1,14 +1,12 @@
 module Populator
   module Users
-    
-    require 'faker'
-    
+        
     def create_users
       @frank   = FactoryGirl.create(:user, first_name: "Frank", last_name: "Liao")
-      @winston   = FactoryGirl.create(:user, first_name: "Mark", last_name: "Vella")
-      @ben  = FactoryGirl.create(:user, first_name: "Israel", last_name: "Madueme")
-      @jason     = FactoryGirl.create(:user, first_name: "Ben", last_name: "Junker")
-      @sarah = FactoryGirl.create(:user, first_name: "Melanie", last_name: "Freeman")
+      @winston   = FactoryGirl.create(:user, first_name: "Winston", last_name: "Chu")
+      @ben  = FactoryGirl.create(:user, first_name: "Ben", last_name: "Catarevas")
+      @jason     = FactoryGirl.create(:user, first_name: "Jason", last_name: "Valentino")
+      @sarah = FactoryGirl.create(:user, first_name: "Sarah", last_name: "Ziegenfuss")
 
       40.times do |i|
         fn = Faker::Name.first_name
