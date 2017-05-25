@@ -38,6 +38,7 @@
         <th>Payer</th>
         <th>Amount</th>
         <th>Date</th>
+        <th></th>
       </tr>
     </thead>
 
@@ -47,6 +48,13 @@
           <td><%= User.find(p.payer_id).proper_name %></td>
           <td><%= number_to_currency(p.amount) %></td>
           <td><%= p.date.strftime("%m/%d/%y") %></td>
+          <td>
+            <%= form_tag(new_payback_path, method: "get") do %>
+              <%= hidden_field_tag 'payment_id', p.id %>
+              <%= hidden_field_tag 'date', Date.current %>
+              <%= submit_tag "Pay Back" %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
