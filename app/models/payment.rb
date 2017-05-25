@@ -25,6 +25,10 @@ class Payment < ActiveRecord::Base
     self.payment_receipt
   end
 
+  def paid
+    !payment_receipt.nil?
+  end
+
   def credit_card_type
     credit_card.type.nil? ? "N/A" : credit_card.type.name
   end
