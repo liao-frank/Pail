@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525150859) do
+ActiveRecord::Schema.define(version: 20170525212709) do
+
+  create_table "fundraisers", force: :cascade do |t|
+    t.integer  "owner_id"
+    t.string   "name"
+    t.string   "category"
+    t.float    "goal"
+    t.float    "raised"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "organization_users", force: :cascade do |t|
     t.integer  "org_id"
