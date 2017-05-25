@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Payment:</strong>
+  <%= @payback.payment_id %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @payback.date %>
+</p>
+
+<%= link_to 'Edit', edit_payback_path(@payback) %> |
+<%= link_to 'Back', paybacks_path %>

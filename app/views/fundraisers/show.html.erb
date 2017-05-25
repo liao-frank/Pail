@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @fundraiser.owner_id %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @fundraiser.type %>
+</p>
+
+<p>
+  <strong>Goal:</strong>
+  <%= @fundraiser.goal %>
+</p>
+
+<p>
+  <strong>Raised:</strong>
+  <%= @fundraiser.raised %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @fundraiser.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @fundraiser.end_date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @fundraiser.description %>
+</p>
+
+<%= link_to 'Edit', edit_fundraiser_path(@fundraiser) %> |
+<%= link_to 'Back', fundraisers_path %>

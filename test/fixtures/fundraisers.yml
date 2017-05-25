@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner_id: 1
+  type: 
+  goal: 1.5
+  raised: 1.5
+  start_date: 2017-05-25
+  end_date: 2017-05-25
+  description: MyString
+
+two:
+  owner_id: 1
+  type: 
+  goal: 1.5
+  raised: 1.5
+  start_date: 2017-05-25
+  end_date: 2017-05-25
+  description: MyString

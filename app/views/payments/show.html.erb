@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Payee:</strong>
+  <%= @payment.payee_id %>
+</p>
+
+<p>
+  <strong>Payer:</strong>
+  <%= @payment.payer_id %>
+</p>
+
+<p>
+  <strong>Fundraiser:</strong>
+  <%= @payment.fundraiser_id %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @payment.amount %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @payment.message %>
+</p>
+
+<p>
+  <strong>Payment receipt:</strong>
+  <%= @payment.payment_receipt %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @payment.date %>
+</p>
+
+<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<%= link_to 'Back', payments_path %>

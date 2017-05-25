@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  payee_id: 1
+  payer_id: 1
+  fundraiser_id: 1
+  amount: 1.5
+  message: MyString
+  payment_receipt: MyString
+  date: 2017-05-25
+
+two:
+  payee_id: 1
+  payer_id: 1
+  fundraiser_id: 1
+  amount: 1.5
+  message: MyString
+  payment_receipt: MyString
+  date: 2017-05-25
