@@ -5,7 +5,7 @@ class Organization < ActiveRecord::Base
 	has_one :orgnaization
 
 	# Validations
-	validates :organization_not_a_duplicate, on: :create
+	validate :organization_not_a_duplicate, on: :create
 
 
 	def already_exists? # Function to check if the organization exists in the database
@@ -24,5 +24,6 @@ class Organization < ActiveRecord::Base
 		members = self.organization_users # Grab the users for the organization
 		members.each do |member| # Go through each member
 			nicknames += member.user.nickname # Add the member's nickname from the User model to the nicknames container
+		end
 	end
 end
