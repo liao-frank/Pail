@@ -33,10 +33,11 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
-  def username_is_not_a_duplicate:
-    return true if self.name.nil?
+  def username_is_not_a_duplicate
+    return true if self.nickname.nil?
     if self.already_exists?
       errors.add(:name, " is already taken as a username.")
+    end
   end
 
   # Scopes

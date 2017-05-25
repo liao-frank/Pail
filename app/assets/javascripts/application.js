@@ -23,3 +23,8 @@ $.fn.extend({
         });
     }
 });
+
+function animateLoad() {
+	$('#content').css('position', 'absolute');
+	$('#content').css('opacity', '0.3');
+}

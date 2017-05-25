@@ -1,5 +1,7 @@
 <% if logged_in? %>
-  <%= "Welcome, " + current_user.proper_name + "!" %>
+  <%= "Welcome, " + current_user.proper_name + "!" %><br>
+  <%= "Funds: " + number_to_currency(current_user.funds) %><br>
+  <%= link_to "click here to pay someone!", new_payment_path %>
   <%= link_to "click here to log out", logout_path %>
 <% else %>
   <%= link_to "click here to log in", login_path %>

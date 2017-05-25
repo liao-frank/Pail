@@ -28,7 +28,15 @@ class PaymentsController < ApplicationController
 
     respond_to do |format|
       if @payment.save
-        format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
+        format.html { 
+          payer = User.find(@payment.payer_id)
+          payer_funds = payer.funds
+          payer.update_attribute(:funds, payer_funds - @payment.amount)
+          payee = User.find(@payment.payee_id)
+          payee_funds = payee.funds
+          payee.update_attribute(:funds, payee_funds + @payment.amount)
+          redirect_to @payment, notice: 'Payment was successfully created.' 
+        }
         format.json { render :show, status: :created, location: @payment }
       else
         format.html { render :new }
