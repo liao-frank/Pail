@@ -9,7 +9,17 @@
 </style>
 
 <% if logged_in? %>
-	<%= link_to "Click here to pay someone", new_payment_path %><br>
-	<%= link_to "Click here to view your payments", payments_path %><br>
-	<%= link_to "Click here to view your fundraisers", fundraisers_path %>
+<%= link_to "Click here to pay someone", new_payment_path %><br>
+<%= link_to "Click here to view your payments", payments_path %><br>
+<%= link_to "Click here to view your fundraisers", fundraisers_path %>
 <% end %>
+
+<div class="medium-basic-container">
+	<% for p in @payments %>
+	<div class="pure-g">
+		<div class="pure-u-1-5">
+			<%= getImage() %>
+		</div>
+	</div>
+	<% end %>
+</div>
