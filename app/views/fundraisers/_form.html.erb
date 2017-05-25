@@ -1,49 +1,18 @@
-<%= form_for(@fundraiser) do |f| %>
-  <% if @fundraiser.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@fundraiser.errors.count, "error") %> prohibited this fundraiser from being saved:</h2>
+<%= simple_form_for(@fundraiser) do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-      <% @fundraiser.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="form-inputs">
+    <%= f.input :owner_id %>
+    <%= f.input :name %>
+    <%= f.input :category %>
+    <%= f.input :goal %>
+    <%= f.input :raised %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :description %>
+  </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :owner_id %><br>
-    <%= f.number_field :owner_id %>
-  </div>
-  <div class="field">
-    <%= f.label :category %><br>
-    <%= f.text_field :category %>
-  </div>
-  <div class="field">
-    <%= f.label :goal %><br>
-    <%= f.text_field :goal %>
-  </div>
-  <div class="field">
-    <%= f.label :raised %><br>
-    <%= f.text_field :raised %>
-  </div>
-  <div class="field">
-    <%= f.label :start_date %><br>
-    <%= f.date_select :start_date %>
-  </div>
-  <div class="field">
-    <%= f.label :end_date %><br>
-    <%= f.date_select :end_date %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.button :submit %>
   </div>
 <% end %>

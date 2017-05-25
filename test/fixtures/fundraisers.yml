@@ -2,7 +2,8 @@
 
 one:
   owner_id: 1
-  category: 
+  name: MyString
+  category: MyString
   goal: 1.5
   raised: 1.5
   start_date: 2017-05-25
@@ -11,7 +12,8 @@ one:
 
 two:
   owner_id: 1
-  category: 
+  name: MyString
+  category: MyString
   goal: 1.5
   raised: 1.5
   start_date: 2017-05-25

@@ -18,7 +18,7 @@ class FundraisersControllerTest < ActionController::TestCase
 
   test "should create fundraiser" do
     assert_difference('Fundraiser.count') do
-      post :create, fundraiser: { description: @fundraiser.description, end_date: @fundraiser.end_date, goal: @fundraiser.goal, owner_id: @fundraiser.owner_id, raised: @fundraiser.raised, start_date: @fundraiser.start_date, category: @fundraiser.category }
+      post :create, fundraiser: { category: @fundraiser.category, description: @fundraiser.description, end_date: @fundraiser.end_date, goal: @fundraiser.goal, name: @fundraiser.name, owner_id: @fundraiser.owner_id, raised: @fundraiser.raised, start_date: @fundraiser.start_date }
     end
 
     assert_redirected_to fundraiser_path(assigns(:fundraiser))
@@ -35,7 +35,7 @@ class FundraisersControllerTest < ActionController::TestCase
   end
 
   test "should update fundraiser" do
-    patch :update, id: @fundraiser, fundraiser: { description: @fundraiser.description, end_date: @fundraiser.end_date, goal: @fundraiser.goal, owner_id: @fundraiser.owner_id, raised: @fundraiser.raised, start_date: @fundraiser.start_date, category: @fundraiser.category }
+    patch :update, id: @fundraiser, fundraiser: { category: @fundraiser.category, description: @fundraiser.description, end_date: @fundraiser.end_date, goal: @fundraiser.goal, name: @fundraiser.name, owner_id: @fundraiser.owner_id, raised: @fundraiser.raised, start_date: @fundraiser.start_date }
     assert_redirected_to fundraiser_path(assigns(:fundraiser))
   end
 
