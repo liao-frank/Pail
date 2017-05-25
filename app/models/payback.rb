@@ -3,6 +3,9 @@ class Payback < ActiveRecord::Base
 	# Relationships
 	has_one :payment
 
+	# Scope
+	scope :for_payment, ->(payment_id) { where(payment_id: payment_id) }
+
 	# Other methods
 	def get_amount(payment_id) # Find the amount to pay back
 		p = Payment.find(payment_id) # Use the payment database to find the payment

@@ -40,4 +40,9 @@ class Payment < ActiveRecord::Base
     credit_card.type.nil? ? "N/A" : credit_card.type.name
   end
 
+  def is_paid_back
+    #returns true if paid back, false if not
+    !Payback.for_payment(self.id).empty?
+  end
+
 end
