@@ -108,6 +108,15 @@ body {
 	width: 500px;
 }
 
+.full-width {
+	width: 100%;
+}
+
+.section {
+	padding: 25px 20px;
+	border-radius: 10px;
+}
+
 .center {
 	margin: 0 auto;
 }

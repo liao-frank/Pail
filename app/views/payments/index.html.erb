@@ -8,24 +8,32 @@
 	height: 200px;
 	width: 187px;
 
-	margin: 75px auto;
+	margin: 0 auto;
+	margin-top: 75px;
+	margin-bottom: 30px;
 }
 #coins-pail {
-	left: 0;
+	left: 5px;
 	position: absolute;
 }
 #coins-coins {
 	display: none;
-	left: 0;
+	left: 5px;
 	position: absolute;
 }
 #fund-info {
+	color: #219cc8;
+	font-size: 24px;
 
+	height: 96px;
+	margin-bottom: 20px;
 }
 #balance {
-	
+	display: none;
+	font-size: 48px;
 }
 </style>
+<p id="notice"><%= notice %></p>
 <div id="coin-animation">
 	<div id="coin-jar">
 		<%= image_tag 'animations/coins-coins.png', height: '200', id: 'coins-coins' %>
@@ -34,85 +42,87 @@
 		<script>
 		$(document).ready(function() {
 			$('#coins-coins').show();
-			$('#coins-coins').animateCss('bounceInDown');
-		});
+			// $('#coins-coins').animateCss('bounceInDown');
+			var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+			$('#coins-coins').addClass('animated ' + 'bounceInDown').one(animationEnd, function() {
+		            $('#coins-coins').removeClass('animated ' + 'bounceInDown');
+		            $('#balance').show();
+		            $('#balance').animateCss('bounceIn');
+		        });
+			});
 		</script>
 	</div>
 	<div id="fund-info">
-		YOUR FUNDS
+		Your Funds
 		<div id="balance">
 			<%= number_to_currency(current_user.funds) %>
 		</div>
 	</div>
 </div>
 
+<div class="full-width">
+	<div class="small-basic-container section light-gray">
+		<h3 style="margin: 0;">Your Payments</h3>
 
+		<h5>Payments Sent</h5>
+		<% unless @payer_payments.empty? %>
+			<!-- Table when user = payer -->
+			<table>
+				<thead>
+					<tr>
+						<th>Payee</th>
+						<th>Amount</th>
+						<th>Date</th>
+					</tr>
+				</thead>
 
-
-
-
-
-
-<p id="notice"><%= notice %></p>
-current fund: <%= number_to_currency(current_user.funds) %>
-<h3>Your Payments</h3>
-
-<h5>Payments Sent</h5>
-<% unless @payer_payments.empty? %>
-	<!-- Table when user = payer -->
-	<table>
-		<thead>
-			<tr>
-				<th>Payee</th>
-				<th>Amount</th>
-				<th>Date</th>
-			</tr>
-		</thead>
-
-		<tbody>
-			<% for p in @payer_payments %>
-				<tr>
-					<td><%= User.find(p.payee_id).proper_name %></td>
-					<td><%= number_to_currency(p.amount) %></td>
-					<td><%= p.date.strftime("%m/%d/%y") %></td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
-<% else %>
-	No payments exist in our system yet.
-<% end %>
-<br>
-
-<h5>Payments Received</h5>
-<% unless @payee_payments.empty? %>
-	<!-- Table when user = payee -->
-	<table>
-		<thead>
-			<tr>
-				<th>Payer</th>
-				<th>Amount</th>
-				<th>Date</th>
-				<th></th>
-			</tr>
-		</thead>
-
-		<tbody>
-			<% for p in @payee_payments %>
-				<tr>
-					<td><%= User.find(p.payer_id).proper_name %></td>
-					<td><%= number_to_currency(p.amount) %></td>
-					<td><%= p.date.strftime("%m/%d/%y") %></td>
-					<% unless p.is_paid_back %>
-						<td><%= link_to "Pay Back", create_payback_path(p) %>
+				<tbody>
+					<% for p in @payer_payments %>
+						<tr>
+							<td><%= User.find(p.payee_id).proper_name %></td>
+							<td><%= number_to_currency(p.amount) %></td>
+							<td><%= p.date.strftime("%m/%d/%y") %></td>
+						</tr>
 					<% end %>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
-<% else %>
-	No payments exist in our system yet.
-<% end %>
-<br>
+				</tbody>
+			</table>
+		<% else %>
+			No payments exist in our system yet.
+		<% end %>
+		<br>
 
-<%= link_to 'New Payment', new_payment_path(:source => "personal") %>
+		<h5>Payments Received</h5>
+		<% unless @payee_payments.empty? %>
+			<!-- Table when user = payee -->
+			<table>
+				<thead>
+					<tr>
+						<th>Payer</th>
+						<th>Amount</th>
+						<th>Date</th>
+						<th></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<% for p in @payee_payments %>
+						<tr>
+							<td><%= User.find(p.payer_id).proper_name %></td>
+							<td><%= number_to_currency(p.amount) %></td>
+							<td><%= p.date.strftime("%m/%d/%y") %></td>
+							<% unless p.is_paid_back %>
+								<td><%= link_to "Pay Back", create_payback_path(p) %></td>
+							<% end %>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		<% else %>
+			No payments exist in our system yet.
+		<% end %>
+		<br>
+
+		<%= link_to 'New Payment', new_payment_path(:source => "personal") %>
+
+	</div>
+</div>
