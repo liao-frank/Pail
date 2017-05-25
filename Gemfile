@@ -33,11 +33,12 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 gem 'validates_timeliness'
+gem "populator"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-  gem 'factory_girl_rails'
+  gem 'byebug', '9.0.6'
+  gem 'faker'
 end
 
 group :development do
@@ -46,5 +47,32 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'quiet_assets'
+  gem 'hirb'
+  gem 'wirble'
+  # gem 'thin'
+  gem 'better_errors'
+  gem 'binding_of_caller', '0.7.2'
+  gem 'meta_request'
+  gem 'letter_opener'
+end
+
+group :test do
+  gem 'shoulda'
+  gem 'shoulda-matchers'
+  gem 'minitest'
+  gem 'minitest-rails'
+  gem 'minitest-reporters'
+  gem 'factory_girl_rails'
+  gem 'mocha'
+  gem 'cucumber-rails', require: false
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'email_spec'
+  gem 'nokogiri'
+  gem 'simplecov'
+  gem 'single_test'
 end
 
