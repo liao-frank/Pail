@@ -54,6 +54,15 @@
 					});
 				</script>
 			</span>
+			<script>
+				$('.user-photo').mouseenter(function(){
+					$(this).animateCss('bounce');
+				});
+
+				$('.user-photo').click(function(){
+					$(this).animateCss('bounce');
+				});
+			</script>
 		</div>
 		<div class="field">
 			<%= f.label :fundraiser_id %><br>
