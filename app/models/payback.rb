@@ -14,10 +14,12 @@ class Payback < ActiveRecord::Base
 		p = Payment.find(payment_id) # Use the payment ID to find the transaction
 		payer_id = p.payer_id # Extract the payer ID
 		payee_id = p.payee_id # Extract the payee ID
-		payer = p.find(payer_id) # Extract the payer User
-		payee = p.find(payee_id) # Extract the payee User
+		payer = User.find(payer_id) # Extract the payer from the User database using the payer_id
+		payee = User.find(payee_id) # Extract the payee from the User database using the payee_id
 		payer.funds+= amount # Add the funds back to the payer, since it's a refund
 		payee.funds-= amount # Subtract the funds from the payee, since they're no longer in control of the funds
+		payer.save! # save the funds changes
+		payee.save! # save the funds changes
 	end
-	
+
 end

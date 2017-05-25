@@ -1,5 +1,6 @@
 class Fundraiser < ActiveRecord::Base
-
+  
+  # Relationships
   belongs_to :user
   has_many :payments
 
@@ -7,7 +8,7 @@ class Fundraiser < ActiveRecord::Base
 	validates :fundraiser_not_a_duplicate, on :create
 
 	def already_exists? # Function to check if the fundraiser name exists in the database
-		Fundraiser.where(:name=self) == 1 # Access the database for any fundraisers with the name, if there exists one already, returns true
+		Fundraiser.where(name: self.name) == 1 # Access the database for any fundraisers with the name, if there exists one already, returns true
 	end
 
 	def fundraiser_not_a_duplicate # Function to be called for validation
