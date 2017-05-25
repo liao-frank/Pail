@@ -5,12 +5,20 @@ Rails.application.routes.draw do
 	resources :fundraisers
 	resources :payments
 	resources :users
+  resources :sessions
+
+	# Log In/Out
+  get 'user/edit' => 'users#edit', :as => :edit_current_user
+  get 'signup' => 'users#new', :as => :signup
+  get 'login' => 'sessions#new', :as => :login
+  get 'logout' => 'sessions#destroy', :as => :logout
 
 	get 'home' => 'home#home', as: :home
 	get 'about' => 'home#about', as: :about
 	get 'contact' => 'home#contact', as: :contact
 	get 'privacy' => 'home#privacy', as: :privacy
 	get 'sandbox' => 'home#sandbox', as: :sandbox
+
 
 	# Set the root url
 	root :to => 'home#home'  
