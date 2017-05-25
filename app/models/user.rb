@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :received_payments, class_name: "Payment", foreign_key: "payer_id"
 
   # Validations
-  validates :username, presence: true, uniqueness: { case_sensitive: false}
+  validates :nickname, presence: true, uniqueness: { case_sensitive: false}
   validates :email, presence: true, uniqueness: { case_sensitive: false}, format: { with: /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, message: "is not a valid format" }
   validates_presence_of :password, on: :create 
   validates_presence_of :password_confirmation, on: :create 
