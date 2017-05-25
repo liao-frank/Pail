@@ -24,9 +24,14 @@ $.fn.extend({
     }
 });
 
+var bounce;
+
 function animateLoad() {
-	$('#content').css('position', 'absolute');
-	$('#content').css('opacity', '0.3');
+	$('#load-animation').show();
+}
+
+function clearLoad() {
+    $('#load-animation').hide();
 }
 // console.log('asdf');
 // $('.grow').mouseenter(function() {

@@ -114,6 +114,10 @@ body {
 
 #load-animation {
 	margin: auto;
+	text-align: center;
+	color: #219cc8;
+	font-size: 48px;
+	text-shadow: 2px 2px #4fd7b1;
 }
 
 /* Colors */

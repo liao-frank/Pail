@@ -56,9 +56,20 @@
 	<div class="header-shadow yellow"></div>
 
 	<div id="content">
-		<div id="load-animation">
-			Test
+		<style> 
+			#load-animation {
+				-webkit-animation-duration: 5s;
+				-webkit-animation-iteration-count: infinite;
+			}
+		</style>
+		<div id="load-animation" style="position: relative; display: none;">
+			Loading...
 		</div>
+		<script>
+			$(document).ready(function() {
+				$('#load-animation').animateCss('flash');
+			});
+		</script>
 
 		<% flash.each do |name, msg| %>
 			<%= msg %>
