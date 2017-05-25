@@ -4,7 +4,8 @@ class PaymentsController < ApplicationController
   # GET /payments
   # GET /payments.json
   def index
-    @payments = Payment.for_payer(current_user.id)
+    @payer_payments = Payment.for_payer(current_user.id).chronological.all
+    @payee_payments = Payment.for_payee(current_user.id).chronological.all
   end
 
   # GET /payments/1
@@ -25,7 +26,7 @@ class PaymentsController < ApplicationController
   # POST /payments.json
   def create
     @payment = Payment.new(payment_params)
-
+    @payment.date = Date.current
     respond_to do |format|
       if @payment.save
         format.html { 
@@ -77,6 +78,6 @@ class PaymentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_params
-      params.require(:payment).permit(:payee_id, :payer_id, :fundraiser_id, :amount, :message, :payment_receipt, :date)
+      params.require(:payment).permit(:payee_id, :payer_id, :fundraiser_id, :amount, :message)
     end
 end
