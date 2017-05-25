@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /payments
   # GET /payments.json
   def index
@@ -16,6 +16,7 @@ class PaymentsController < ApplicationController
   # GET /payments/new
   def new
     @payment = Payment.new
+    @payees = User.alphabetical.all.to_a - [current_user]
   end
 
   # GET /payments/1/edit
@@ -27,6 +28,7 @@ class PaymentsController < ApplicationController
   def create
     @payment = Payment.new(payment_params)
     @payment.date = Date.current
+    @payment.payer_id = current_user.id
     respond_to do |format|
       if @payment.save
         format.html { 
@@ -57,16 +59,6 @@ class PaymentsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @payment.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /payments/1
-  # DELETE /payments/1.json
-  def destroy
-    @payment.destroy
-    respond_to do |format|
-      format.html { redirect_to payments_url, notice: 'Payment was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

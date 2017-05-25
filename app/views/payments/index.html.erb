@@ -3,30 +3,56 @@
 <h3>Your Payments</h3>
 
 <h5>Payments Sent</h5>
-
-<!-- Table when user = payer -->
-<% for p in @payer_payments %>
+<% unless @payer_payments.empty? %>
+  <!-- Table when user = payer -->
   <table>
     <thead>
       <tr>
         <th>Payee</th>
-        <th>Fundraiser</th>
         <th>Amount</th>
         <th>Date</th>
       </tr>
     </thead>
 
     <tbody>
-      <tr>
-        <td><%= User.find(p.payee_id).proper_name %></td>
-        <td><%= p.fundraiser_id %></td>
-        <td><%= number_to_currency(p.amount) %></td>
-        <td><%= p.date.strftime("%m/%d/%y") %></td>
-        <td><%= link_to 'Show', p %></td>
-        <td><%= link_to 'Destroy', p, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% for p in @payer_payments %>
+        <tr>
+          <td><%= User.find(p.payee_id).proper_name %></td>
+          <td><%= number_to_currency(p.amount) %></td>
+          <td><%= p.date.strftime("%m/%d/%y") %></td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
+<% else %>
+  No payments exist in our system yet.
+<% end %>
+<br>
+
+<h5>Payments Received</h5>
+<% unless @payee_payments.empty? %>
+  <!-- Table when user = payee -->
+  <table>
+    <thead>
+      <tr>
+        <th>Payer</th>
+        <th>Amount</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% for p in @payee_payments %>
+        <tr>
+          <td><%= User.find(p.payer_id).proper_name %></td>
+          <td><%= number_to_currency(p.amount) %></td>
+          <td><%= p.date.strftime("%m/%d/%y") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  No payments exist in our system yet.
 <% end %>
 <br>
 

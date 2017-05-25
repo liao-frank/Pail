@@ -21,6 +21,9 @@ class Payment < ActiveRecord::Base
   scope :personal,        -> { where(fundraiser_id: nil)}
   scope :fundraiser,      -> { where.not(fundraiser_id: nil) }
 
+  validates :payer_id, numericality: { only_integer: true }
+  validates :payee_id, numericality: { only_integer: true }
+
   # Methods
   def pay
     return false unless self.payment_receipt.nil?

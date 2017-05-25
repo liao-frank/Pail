@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   # Log-in
   has_secure_password
 
+  # Scopes
+  scope :alphabetical,  -> { order(:last_name).order(:first_name) }
+
   # Relationships
   has_many :payments
   has_many :fundraisers
