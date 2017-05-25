@@ -19,6 +19,8 @@ namespace :db do
     @ben  = FactoryGirl.create(:user, first_name: "Ben", last_name: "Catarevas")
     @jason     = FactoryGirl.create(:user, first_name: "Jason", last_name: "Valentino")
     @sarah = FactoryGirl.create(:user, first_name: "Sarah", last_name: "Ziegenfuss")
+    @firoze = FactoryGirl.create(:user, first_name: "Firoze", last_name: "Lafeer")
+    @louie = FactoryGirl.create(:user, first_name: "Louie", last_name: "De La Rosa")
 
     40.times do |i|
       fn = Faker::Name.first_name
