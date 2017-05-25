@@ -1,33 +1,83 @@
 <%= simple_form_for(@payment) do |f| %>
-  <% if @payment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
+	<% if @payment.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
 
-      <ul>
-      <% @payment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+			<ul>
+			<% @payment.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<div class="pure-form">
+		<div class="field">
+			<%= f.label :payee_id %><br>
+			<%= f.collection_select :payee_id, User.alphabetical.all - [current_user], :id, :name %>
+			<style>
+				.user-photo {
+					height: 64px;
+					border-radius: 8px;
+					margin-right: 10px;
+					margin-bottom: 10px;
+				}
+			</style>
+			<span class="photo-one">
+				<%= image_tag('users/jason.jpg', class: 'user-photo', id: 'jason-photo') %>
+				<script>
+					$('#jason-photo').click(function() {
+						$('#payment_payee_id').val("1");
+					});
+				</script>
+			</span>
+			<span class="photo-two">
+				<%= image_tag "users/sarah.jpg", class: 'user-photo', id: 'sarah-photo' %>
+				<script>
+					$('#sarah-photo').click(function() {
+						$('#payment_payee_id').val("1");
+					});
+				</script>
+			</span>
+			<span class="photo-three">
+				<%= image_tag "users/louie.jpg", class: 'user-photo', id: 'louie-photo' %>
+				<script>
+					$('#louie-photo').click(function() {
+						$('#payment_payee_id').val("1");
+					});
+				</script>
+			</span>
+			<span class="photo-four">
+				<%= image_tag "users/firoze.jpg", class: 'user-photo', id: 'firoze-photo' %>
+				<script>
+					$('#firoze-photo').click(function() {
+						$('#payment_payee_id').val("1");
+					});
+				</script>
+			</span>
+			<script>
+				$('.user-photo').mouseenter(function(){
+					$(this).animateCss('bounce');
+				});
 
-  <div class="field">
-    <%= f.label :payee_id %><br>
-    <%= f.collection_select :payee_id, User.alphabetical.all - [current_user], :id, :name %>
-  </div>
-  <div class="field">
-    <%= f.label :fundraiser_id %><br>
-    <%= f.number_field :fundraiser_id %>
-  </div>
-  <div class="field">
-    <%= f.label :amount %><br>
-    <%= f.text_field :amount %>
-  </div>
-  <div class="field">
-    <%= f.label :message %><br>
-    <%= f.text_field :message %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+				$('.user-photo').click(function(){
+					$(this).animateCss('bounce');
+				});
+			</script>
+		</div>
+		<div class="field">
+			<%= f.label :fundraiser_id %><br>
+			<%= f.number_field :fundraiser_id %>
+		</div>
+		<div class="field">
+			<%= f.label :amount %><br>
+			<%= f.text_field :amount %>
+		</div>
+		<div class="field">
+			<%= f.label :message %><br>
+			<%= f.text_field :message %>
+		</div>
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+	</div>
 <% end %>

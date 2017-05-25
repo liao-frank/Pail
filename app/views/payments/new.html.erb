@@ -1,5 +1,33 @@
-<h1>New Payment</h1>
+<style>
+	#content .center {
+		position: relative;
+		top: 30px;
+	}
+	#content form {
+		position: relative;
+	}
+	#content .center {
+		width: 350px;
+	}
+	#content label {
+		position: relative;
+		font-size: 15px;
+		bottom: 5px;
+	}
+	#content input {
+		width: 300px;
+		height: 35px;
 
-<%= render 'form' %>
+		margin-bottom: 35px;
+	}
+	#content .light-gray-border {
+		padding: 30px 20px;
+	}
+</style>
+<div class="center">
+	<h1>Make a Payment</h1>
 
-<%= link_to 'Back', payments_path %>
+	<%= render 'form' %>
+
+	<%= link_to 'Back', payments_path %>
+</div>
