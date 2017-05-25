@@ -15,6 +15,9 @@
  */
 
 /* Structure */
+* {
+	transition: 0.2s;
+}
 html {
 	height: 100%;
 }
@@ -37,6 +40,10 @@ body {
 #header a, #header a:hover {
 	text-decoration: none;
 	color: inherit;
+}
+
+#header a:hover {
+	filter: brightness(0.8);
 }
 
 #header #search-form input {
@@ -69,7 +76,12 @@ body {
 	height: 1px;
 }
 
-#content a, #content a:hover {
+#content a {
+	text-decoration: underline;
+	color: #219cc8;
+}
+#content a:hover {
+	color: #4fd7b1;
 }
 
 #content {
@@ -142,6 +154,14 @@ body {
 	border: solid 1px #f1f1f1;
 	border-radius: 4px;
 	padding: 10px 20px;
+}
+
+.darken-on-hover:hover {
+	filter: brightness(0.8);
+}
+
+.lighten-on-hover:hover {
+	filter: brightness(1.2);
 }
 
 /* Components */

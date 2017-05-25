@@ -28,3 +28,26 @@ function animateLoad() {
 	$('#content').css('position', 'absolute');
 	$('#content').css('opacity', '0.3');
 }
+// console.log('asdf');
+// $('.grow').mouseenter(function() {
+//     console.log('asdf');
+//     var val = 1.5;
+//     $(this).css({
+//         '-webkit-transform': 'scale(' + val + ')',
+//         '-moz-transform': 'scale(' + val + ')',
+//         '-ms-transform': 'scale(' + val + ')',
+//         '-o-transform': 'scale(' + val + ')',
+//         'transform': 'scale(' + val + ')'
+//     });
+//     val = 1;
+//     setTimeout(function(){
+//         $(this).css({
+//             '-webkit-transform': 'scale(' + val + ')',
+//             '-moz-transform': 'scale(' + val + ')',
+//             '-ms-transform': 'scale(' + val + ')',
+//             '-o-transform': 'scale(' + val + ')',
+//             'transform': 'scale(' + val + ')'
+//         });
+//     }, 1000);
+
+// });
