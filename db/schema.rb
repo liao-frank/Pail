@@ -15,7 +15,8 @@ ActiveRecord::Schema.define(version: 20170525150859) do
 
   create_table "fundraisers", force: :cascade do |t|
     t.integer  "owner_id"
-    t.string   "type"
+    t.string   "name"
+    t.string   "category"
     t.float    "goal"
     t.float    "raised"
     t.date     "start_date"
