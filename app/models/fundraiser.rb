@@ -4,6 +4,9 @@ class Fundraiser < ActiveRecord::Base
   belongs_to :user
   has_many :payments
 
+  # Scopes
+  scope :chronological,   -> { order(date: :desc) }
+
   # Validations
   validates :fundraiser_not_a_duplicate, on: :create
   def already_exists? # Function to check if the fundraiser name exists in the database
@@ -21,6 +24,7 @@ class Fundraiser < ActiveRecord::Base
 		payments = Payment.for_fundraiser(self.id) # Array for all the active record payments of all the fundraisers
 		payments.each do |p| # Go through each payment that matches the fundraiser_id
 			p.pay # Invoke the pay method of the Payment model
+			self.user.update_attribute(:funds, self.funds + p.amount) # Update the funds of the user in control of the fundraiser/funds account
 		end
 	end
 end
