@@ -1,11 +1,10 @@
-== README
+== Pail
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Pail is an app that streamlines the process of donating to fundraisers, charities, and makes it easy to pay users, all in one app.
 
-Things you may want to cover:
+Rather than jump through hoops such as creating an account to donate to a specific user, Pail allows users to create their own organizations or fundraisers to receive donations, as well as letting users pay other users.
 
-* Ruby version
+# How it works
 
 * System dependencies
 
