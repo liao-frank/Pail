@@ -23,6 +23,7 @@ class Payment < ActiveRecord::Base
 
   validates :payer_id, numericality: { only_integer: true }
   validates :payee_id, numericality: { only_integer: true }
+  validates_numericality_of :amount, greater_than: 0
 
   # Methods
   def pay

@@ -64,13 +64,15 @@
 				});
 			</script>
 		</div>
-		<div class="field">
-			<%= f.label :fundraiser_id %><br>
-			<%= f.number_field :fundraiser_id %>
-		</div>
+		<% unless @payment.fundraiser_id.nil? %>
+			<div class="field">
+				<%= f.label :fundraiser_id %><br>
+				<%= f.number_field :fundraiser_id %>
+			</div>
+		<% end %>
 		<div class="field">
 			<%= f.label :amount %><br>
-			<%= f.text_field :amount %>
+			<%= f.number_field :amount %>
 		</div>
 		<div class="field">
 			<%= f.label :message %><br>
