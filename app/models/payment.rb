@@ -14,9 +14,12 @@ class Payment < ActiveRecord::Base
   belongs_to :fundraiser
 
   # Scopes
-  scope :for_fundraiser, ->(fundraiser_id) { where(fundraiser_id: fundraiser_id) }
+  scope :for_fundraiser,  ->(fundraiser_id) { where(fundraiser_id: fundraiser_id) }
   scope :for_payee,       ->(payee_id) { where(payee_id: payee_id) }
   scope :for_payer,       ->(payer_id) { where(payer_id: payer_id) }
+  scope :chronological,   -> { order(date: :desc) }
+  scope :personal,        -> { where(fundraiser_id: nil)}
+  scope :fundraiser,      -> { where.not(fundraiser_id: nil) }
 
   # Methods
   def pay
