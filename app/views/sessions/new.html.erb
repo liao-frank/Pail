@@ -36,5 +36,11 @@
 			<%= password_field_tag :password %>
 		
 		<%= submit_tag("Log In", class: 'pure-button') %>
+		<%= link_to(new_user_path) do %>
+			<button class="pure-button button-secondary" style="width: 300px; background-color: rgb(66, 184, 221);">
+				Sign Up
+			</button>
+		<% end %>
 	<% end %>
+	
 </div>
