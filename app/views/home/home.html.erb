@@ -9,6 +9,7 @@
 </style>
 
 <% if logged_in? %>
+<<<<<<< HEAD
 <%= link_to "Click here to pay someone", new_payment_path %><br>
 <%= link_to "Click here to view your payments", payments_path %><br>
 <%= link_to "Click here to view your fundraisers", fundraisers_path %>
@@ -23,3 +24,9 @@
 	</div>
 	<% end %>
 </div>
+=======
+	<%= link_to "Click here to pay someone", new_payment_path(:source => "personal") %><br>
+	<%= link_to "Click here to view your payments", payments_path %><br>
+	<%= link_to "Click here to view your fundraisers", fundraisers_path %>
+<% end %>
+>>>>>>> 219c63fbb9725c1d7243ddf52cf3b840e4282086

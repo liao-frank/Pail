@@ -41,4 +41,4 @@
 </p>
 
 <%= link_to 'Edit', edit_fundraiser_path(@fundraiser) %> |
-<%= link_to 'Back', fundraisers_path %>
+<%= link_to "Contribute to this fundraiser", new_payment_path(:source => "fundraiser", :fund_id => @fundraiser.id) %>
