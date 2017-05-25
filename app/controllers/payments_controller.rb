@@ -1,6 +1,22 @@
 class PaymentsController < ApplicationController
-  before_action :set_payment, only: [:show, :edit, :update, :destroy]
+  before_action :set_payment, only: [:show, :edit, :update, :destroy, :reduce_add_funds, :create_payback]
   
+  def create_payback
+    info = {payment_id: payment_id, date: Date.current}
+    reduce_add_funds(@payment.payee_id, @payment,payer_id)
+    Payback.create(info)
+    notice: 'Payment was successfully paid back.'
+  end
+
+  def reduce_add_funds(payer_id, payee_id)
+    payer = User.find(payer_id)
+    payer_funds = payer.funds
+    payer.update_attribute(:funds, payer_funds - @payment.amount)
+    payee = User.find(payee_id)
+    payee_funds = payee.funds
+    payee.update_attribute(:funds, payee_funds + @payment.amount)
+  end
+
   # GET /payments
   # GET /payments.json
   def index
@@ -32,12 +48,7 @@ class PaymentsController < ApplicationController
     respond_to do |format|
       if @payment.save
         format.html { 
-          payer = User.find(@payment.payer_id)
-          payer_funds = payer.funds
-          payer.update_attribute(:funds, payer_funds - @payment.amount)
-          payee = User.find(@payment.payee_id)
-          payee_funds = payee.funds
-          payee.update_attribute(:funds, payee_funds + @payment.amount)
+          reduce_add_funds(@payment.payer_id, @payment.payee_id)
           redirect_to @payment, notice: 'Payment was successfully created.' 
         }
         format.json { render :show, status: :created, location: @payment }

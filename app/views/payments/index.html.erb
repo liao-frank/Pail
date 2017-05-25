@@ -48,7 +48,7 @@
           <td><%= User.find(p.payer_id).proper_name %></td>
           <td><%= number_to_currency(p.amount) %></td>
           <td><%= p.date.strftime("%m/%d/%y") %></td>
-          </td>
+          <td><%= link_to "Pay Back", create_payback_path %>
         </tr>
       <% end %>
     </tbody>

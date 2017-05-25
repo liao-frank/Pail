@@ -15,7 +15,6 @@ class PaybacksController < ApplicationController
   # GET /paybacks/new
   def new
     @payback = Payback.new
-    
   end
 
   # GET /paybacks/1/edit

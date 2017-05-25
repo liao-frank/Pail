@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 	get 'privacy' => 'home#privacy', as: :privacy
 	get 'sandbox' => 'home#sandbox', as: :sandbox
 
+	get 'create_payback' => 'payments#create_payback', as: :create_payback
 
 	# Set the root url
 	root :to => 'home#home'  
