@@ -4,11 +4,20 @@
   <title>Cap1Hack</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <!-- Animate CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div id="header">
 
-<%= yield %>
+	</div>
+	<div id="content">
+		<%= yield %>
+	</div>
 
+	<div id="footer">
+
+	</div>
 </body>
 </html>

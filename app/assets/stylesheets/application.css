@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+/* Structure */
+#header {
+
+}
+
+#content {
+	min-height: 50%;
+}
+
+#footer {
+
+}
