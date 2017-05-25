@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :fundraisers
 	resources :organizations
 	resources :organization_users
 	resources :paybacks

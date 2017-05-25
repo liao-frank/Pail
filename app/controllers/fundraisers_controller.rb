@@ -25,7 +25,9 @@ class FundraisersController < ApplicationController
   # POST /fundraisers.json
   def create
     @fundraiser = Fundraiser.new(fundraiser_params)
-
+    @fundraiser.owner_id = current_user.id
+    @fundraiser.start_date = Date.current
+    @fundraiser.raised = 0
     respond_to do |format|
       if @fundraiser.save
         format.html { redirect_to @fundraiser, notice: 'Fundraiser was successfully created.' }
@@ -69,6 +71,6 @@ class FundraisersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fundraiser_params
-      params.require(:fundraiser).permit(:owner_id, :type, :goal, :raised, :start_date, :end_date, :description)
+      params.require(:fundraiser).permit(:owner_id, :name, :category, :goal, :raised, :start_date, :end_date, :description)
     end
 end

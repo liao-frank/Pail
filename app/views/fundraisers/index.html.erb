@@ -6,7 +6,8 @@
   <thead>
     <tr>
       <th>Owner</th>
-      <th>Type</th>
+      <th>Name</th>
+      <th>Category</th>
       <th>Goal</th>
       <th>Raised</th>
       <th>Start date</th>
@@ -20,7 +21,8 @@
     <% @fundraisers.each do |fundraiser| %>
       <tr>
         <td><%= fundraiser.owner_id %></td>
-        <td><%= fundraiser.type %></td>
+        <td><%= fundraiser.name %></td>
+        <td><%= fundraiser.category %></td>
         <td><%= fundraiser.goal %></td>
         <td><%= fundraiser.raised %></td>
         <td><%= fundraiser.start_date %></td>
