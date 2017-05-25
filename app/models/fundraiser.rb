@@ -7,7 +7,7 @@ class Fundraiser < ActiveRecord::Base
   has_many :payments
 
   # Scopes
-  scope :chronological,   -> { order(date: :desc) }
+  scope :chronological,   -> { order(start_date: :desc) }
 
   # Validations
 	validates_date :end_date, after: :start_date, allow_blank: true
