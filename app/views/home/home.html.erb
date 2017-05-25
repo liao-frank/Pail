@@ -11,16 +11,26 @@
 <% if logged_in? %>
 <%= link_to "Click here to pay someone", new_payment_path %><br>
 <%= link_to "Click here to view your payments", payments_path %><br>
-<%= link_to "Click here to view your fundraisers", fundraisers_path %>
+<%= link_to "Click here to view your fundraisers", fundraisers_path %><br>
+<%= link_to "Click here to view your Organizations", organizations_path %><br>
 <% end %>
 
+<<<<<<< HEAD
 <div class="small-basic-container">
 	<% for p in @payments %>
 	<div class="pure-g">
 		<div class="pure-u-1-5">
 			<%= image_tag getUserImagePath(p.payer.nickname, class: "user-image") %>
+=======
+<div class="medium-basic-container">
+	<%= @payments %>
+	<% for payment in @payments %>
+		<div class="pure-g">
+			<div class="pure-u-1-5">
+				<%= image_tag getUserImagePath(payment.payer.nickname) %>
+			</div>
+>>>>>>> 4720cfb17957a1a58411e77de492ba794fe1962a
 		</div>
-	</div>
 	<% end %>
 </div>
 
