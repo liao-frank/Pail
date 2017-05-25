@@ -25,7 +25,9 @@ class FundraisersController < ApplicationController
   # POST /fundraisers.json
   def create
     @fundraiser = Fundraiser.new(fundraiser_params)
-
+    @fundraiser.owner_id = current_user.id
+    @fundraiser.start_date = Date.current
+    @fundraiser.raised = 0
     respond_to do |format|
       if @fundraiser.save
         format.html { redirect_to @fundraiser, notice: 'Fundraiser was successfully created.' }
