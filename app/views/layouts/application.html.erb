@@ -38,15 +38,26 @@
 					</p>
 				</div>
 				<div class="pure-u-2-24">
-					<div style="position: relative;
-    left: 50px;
-    top: 11px;">
+					<style>
+					#user-icon {
+						position: relative;
+						left: 40px;
+						top: 12px;
+					}
+					#wallet-icon {
+						position: relative;
+						left: 70px;
+						top: 13px;
+					}
+					</style>
 					<% if logged_in? %>
 						<%= link_to user_path(current_user.id) do %>
-							<%= image_tag('icons/user-white.png', height: '32') %>
+							<%= image_tag('icons/user-white.png', height: '32', id: "user-icon") %>
+						<% end %>
+						<%= link_to payments_path do %>
+							<%= image_tag('icons/wallet-white.png', height: '29', id: "wallet-icon") %>
 						<% end %>
 					<% end %>
-					</div>
 				</div>
 				<div class="pure-u-8-24">
 					<div class="account">
