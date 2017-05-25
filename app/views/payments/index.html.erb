@@ -60,4 +60,4 @@ current fund: <%= number_to_currency(current_user.funds) %>
 <% end %>
 <br>
 
-<%= link_to 'New Payment', new_payment_path %>
+<%= link_to 'New Payment', new_payment_path(:source => "personal") %>

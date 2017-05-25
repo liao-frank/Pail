@@ -64,7 +64,7 @@
 				});
 			</script>
 		</div>
-		<% unless @payment.fundraiser_id.nil? %>
+		<% if @source != "personal" %>
 			<div class="field">
 				<%= f.label :fundraiser_id %><br>
 				<%= f.number_field :fundraiser_id %>

@@ -9,7 +9,7 @@
 </style>
 
 <% if logged_in? %>
-	<%= link_to "Click here to pay someone", new_payment_path %><br>
+	<%= link_to "Click here to pay someone", new_payment_path(:source => "personal") %><br>
 	<%= link_to "Click here to view your payments", payments_path %><br>
 	<%= link_to "Click here to view your fundraisers", fundraisers_path %>
 <% end %>

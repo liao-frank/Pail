@@ -33,6 +33,7 @@ class PaymentsController < ApplicationController
 
   # GET /payments/new
   def new
+    @source = params[:source]
     @payment = Payment.new
     @payees = User.alphabetical.all.to_a - [current_user]
   end
