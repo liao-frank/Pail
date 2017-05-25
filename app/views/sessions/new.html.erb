@@ -1,28 +1,40 @@
 <style>
 	#content .center {
-		width: 300px;
+		position: relative;
+		top: 30px;
+	}
+	#content form {
+		position: relative;
+	}
+	#content .center {
+		width: 350px;
 	}
 	#content label {
-		font-size:;
+		position: relative;
+		font-size: 18px;
+		bottom: 5px;
 	}
 	#content input {
 		width: 300px;
 		height: 35px;
 
-		margin-bottom: 20px;
+		margin-bottom: 35px;
+	}
+	#content .light-gray-border {
+		padding: 30px 20px;
 	}
 </style>
 
 
 <div class="center">
 	<h3>Log In</h3>
-	<%= form_tag(sessions_path, class: "pure-form") do %>
+	<%= form_tag(sessions_path, class: "pure-form light-gray-border") do %>
 			<%= label_tag :email %><br/>
 			<%= text_field_tag :email, params[:email] %>
 			<br/>
 			<%= label_tag :password %><br/>
 			<%= password_field_tag :password %>
 		
-		<div class="actions"><%= submit_tag "Log In" %></div>
+		<%= submit_tag("Log In", class: 'pure-button') %>
 	<% end %>
 </div>

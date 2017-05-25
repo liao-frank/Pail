@@ -15,7 +15,8 @@ class Payment < ActiveRecord::Base
 
   # Scopes
   scope :for_fundraiser, ->(fundraiser_id) { where(fundraiser_id: fundraiser_id) }
-  scope :for_user,       ->(user_id) { where(user_id: user_id) }
+  scope :for_payee,       ->(payee_id) { where(payee_id: payee_id) }
+  scope :for_payer,       ->(payer_id) { where(payer_id: payer_id) }
 
   # Methods
   def pay

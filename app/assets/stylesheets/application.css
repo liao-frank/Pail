@@ -34,6 +34,11 @@ body {
 	position: relative;
 }
 
+#header a, #header a:hover {
+	text-decoration: none;
+	color: inherit;
+}
+
 #header #search-form input {
 	color: black;
 	width: 350px;
@@ -48,6 +53,7 @@ body {
 }
 
 #header .logo {
+	width: 100px;
 	font-family: 'Segoe UI';
 	font-size: 32px;
 	font-weight: 300;
@@ -61,6 +67,9 @@ body {
 
 .header-shadow {
 	height: 1px;
+}
+
+#content a, #content a:hover {
 }
 
 #content {
@@ -127,6 +136,12 @@ body {
 /* Styling */
 .pail-font {
 	font-family: Helvetica;
+}
+
+.light-gray-border {
+	border: solid 1px #f1f1f1;
+	border-radius: 4px;
+	padding: 10px 20px;
 }
 
 /* Components */
