@@ -7,7 +7,7 @@ class PaymentsController < ApplicationController
     payer_id = @payment.payer_id
     reduce_add_funds(payee_id, payer_id)
     Payback.create(info)
-    redirect_to payments_path, notice
+    redirect_to payments_path
   end
 
   def reduce_add_funds(payer_id, payee_id)
