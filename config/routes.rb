@@ -11,7 +11,11 @@ Rails.application.routes.draw do
 	get 'contact' => 'home#contact', as: :contact
 	get 'privacy' => 'home#privacy', as: :privacy
 	get 'sandbox' => 'home#sandbox', as: :sandbox
-	
+
+	# Set the root url
+	root :to => 'home#home'  
+
+
 	# The priority is based upon order of creation: first created -> highest priority.
 	# See how all your routes lay out with "rake routes".
 
