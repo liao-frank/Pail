@@ -14,7 +14,7 @@
 		<% unless @source == "fundraiser" %>
 			<div class="field">
 				<%= f.label :payee_id %><br>
-				<%= f.collection_select :payee_id, @payees - [current_user], :id, :name %>
+				<%= f.collection_select :payee_id, User.alphabetical.all.to_a - [current_user], :id, :name %>
 				<style>
 					.user-photo {
 						height: 64px;
@@ -65,6 +65,9 @@
 					});
 				</script>
 			</div>
+		<% else %>
+			<%= f.input :payee_id, :as => :hidden, :input_html => { :value => @payee.id } %>
+			<%= f.input :fundraiser_id, :as => :hidden, :input_html => { :value => @fundraiser.id } %>
 		<% end %>
 		<div class="field">
 			<%= f.label :amount %><br>
