@@ -34,6 +34,11 @@ body {
 	position: relative;
 }
 
+#header a, #header a:hover {
+	text-decoration: none;
+	color: inherit;
+}
+
 #header #search-form input {
 	color: black;
 	width: 350px;
@@ -62,6 +67,9 @@ body {
 
 .header-shadow {
 	height: 1px;
+}
+
+#content a, #content a:hover {
 }
 
 #content {
