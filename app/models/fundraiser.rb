@@ -1,4 +1,6 @@
 class Fundraiser < ActiveRecord::Base
+
+	TYPES = [['Theshold','threshold'],['Flex','flex']]
   
   # Relationships
   belongs_to :user
@@ -8,7 +10,12 @@ class Fundraiser < ActiveRecord::Base
   scope :chronological,   -> { order(date: :desc) }
 
   # Validations
-  validates :fundraiser_not_a_duplicate, on: :create
+	validates_date :end_date, on_or_after: :start_date, allow_blank: true
+	validates_inclusion_of :fundraiser, in: %w[threshold flex], message: "must be either theshold or flex"
+	validates_numericality_of :goal, greater_than: 0
+	validates_numericality_of :raised, greater_than: 0
+  validate :fundraiser_not_a_duplicate, on: :create
+
   def already_exists? # Function to check if the fundraiser name exists in the database
   		Fundraiser.where(name: self.name) == 1 # Access the database for any fundraisers with the name, if there exists one already, returns true
 	end
