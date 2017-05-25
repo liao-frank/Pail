@@ -10,8 +10,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @payer_payments = Payment.for_payer(current_user.id).chronological.all
-    @payee_payments = Payment.for_payee(current_user.id).chronological.all
+    @payer_payments = Payment.for_payer(@user.id).chronological.all
+    @payee_payments = Payment.for_payee(@user.id).chronological.all
   end
 
   # GET /users/new
@@ -29,17 +29,14 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        format.html { 
-          redirect_to @user, notice: 'User was successfully created.' 
-        }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+    if @user.save
+      if !logged_in?
+        session[:user_id] = @user.id
+        redirect_to home_path, notice: "Welcome, #{@user.first_name}. Thank you for signing up!"
       end
+    else
+      flash[:error] = "This user could not be created."
+      render "new"
     end
   end
 
