@@ -47,6 +47,10 @@
 		width: 10%;
 		background-color: #4fd7b1;
 	}
+	#fundraiser-image {
+		width: 100%;
+		margin: 20px 0;
+	}
 </style>
 <p id="notice"><%= notice %></p>
 
@@ -86,7 +90,15 @@
 
 
 
-<%= image_tag getFundraiserImagePath(@fundraiser.name) %>
+<%= image_tag(getFundraiserImagePath(@fundraiser.name), id: "fundraiser-image") %>
+
+<div class="full-width">
+	<div class="medium-basic-container">
+		<div class="section light-gray">
+			<!--  -->
+		</div>
+	</div>
+</div>
 <p>
 	<strong>Owner:</strong>
 	<%= @fundraiser.owner_id %>
