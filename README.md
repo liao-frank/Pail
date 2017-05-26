@@ -36,7 +36,7 @@ Note: For Mac, you might have to install Nokogiri by itself if you are on the la
 
 `$ rails s`
 
-`$ rake db:population`
+`$ rake db:populate`
 
 ## Contacts
 
