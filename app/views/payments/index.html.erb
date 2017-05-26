@@ -111,6 +111,7 @@
 			<table>
 				<thead>
 					<tr>
+						<th>Payment ID</th>
 						<th>Payee</th>
 						<th>Amount</th>
 						<th>Date</th>
@@ -120,6 +121,7 @@
 				<tbody>
 					<% for p in @payer_payments %>
 						<tr>
+							<td><%= link_to p.id, payment_path(p) %></td>
 							<td><%= User.find(p.payee_id).proper_name %></td>
 							<td><%= number_to_currency(p.amount) %></td>
 							<td><%= p.date.strftime("%m/%d/%y") %></td>

@@ -29,6 +29,8 @@ class PaymentsController < ApplicationController
   # GET /payments/1
   # GET /payments/1.json
   def show
+    @payee = User.find(@payment.payee_id)
+    @payer = User.find(@payment.payer_id)
   end
 
   # GET /payments/new

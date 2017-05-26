@@ -1,39 +1,79 @@
 <p id="notice"><%= notice %></p>
+<style>
+#coin-animation {
+	width: 100%;
+	text-align: center;
+}
+#coin-jar {
+	position: relative;
+	height: 200px;
+	width: 187px;
 
-<p>
-  <strong>Payee:</strong>
-  <%= @payment.payee_id %>
-</p>
+	margin: 0 auto;
+	margin-top: 65px;
+	margin-bottom: 30px;
+}
+#coins-pail {
+	left: 5px;
+	position: absolute;
+}
+#coins-coins {
+	display: none;
+	left: 5px;
+	position: absolute;
+}
+#fund-info {
+	color: #219cc8;
+	font-size: 24px;
 
-<p>
-  <strong>Payer:</strong>
-  <%= @payment.payer_id %>
-</p>
+	height: 96px;
+	margin-bottom: 20px;
+}
+#balance {
+	display: none;
+	font-size: 48px;
+}
+#user-actions {
+	margin: 0 auto;
+	width: 400px;
+	margin-bottom: 20px;
 
-<p>
-  <strong>Fundraiser:</strong>
-  <%= @payment.fundraiser_id %>
-</p>
-
-<p>
-  <strong>Amount:</strong>
-  <%= @payment.amount %>
-</p>
-
-<p>
-  <strong>Message:</strong>
-  <%= @payment.message %>
-</p>
-
-<p>
-  <strong>Payment receipt:</strong>
-  <%= @payment.payment_receipt %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @payment.date %>
-</p>
-
-<%= link_to 'Edit', edit_payment_path(@payment) %> |
-<%= link_to 'Back', payments_path %>
+	position: relative;
+	left: 28px;
+}
+#user-actions a, #user-actions a:hover {
+	text-decoration: none;
+	color: #219cc8;
+}
+.user-action {
+	height: 84px;
+	margin: 0 auto;
+}
+.user-action:hover {
+	filter: brightness(0.8);
+}
+.user-photo {
+  height: 175px;
+  border-radius: 8px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+</style>
+<div class="full-width">
+	<div id="user-actions">
+		<div class="pure-g">
+			<div class="pure-u-1-2">
+				<%= link_to user_path do %>
+					<%= image_tag getUserImagePath(@payer.nickname), class: 'user-photo' %>
+					<span style="width: 10px;"></span><%= @payer.name %>
+				<% end %>
+			</div>
+			<div class="pure-u-1-2">
+				<%= link_to user_path do %>
+					<%= image_tag getUserImagePath(@payee.nickname), class: 'user-photo' %>
+					<span style="width: 10px;"></span><%= @payee.name %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
