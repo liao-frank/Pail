@@ -26,7 +26,7 @@
 	#arrow {
 		width: 200px;
 		height: 50px;
-
+		filter: saturate(0.6);
 		position: relative;
 		right: 25px;
 	}
@@ -35,7 +35,7 @@
 	<div class="medium-basic-container">
 		<div class="pure-g photos">
 			<div class="pure-u-10-24" style="text-align: center !important;">
-				<%= link_to user_path do %>
+				<%= link_to user_path(@payer) do %>
 					<%= image_tag getUserImagePath(@payer.nickname), class: 'user-photo', id: "payer-photo" %>
 					<br/>
 					<span style="width: 10px;"></span><%= @payer.proper_name %>
@@ -48,11 +48,10 @@
 				<%= image_tag 'icons/arrow-turquoise.png', id: 'arrow' %>
 			</div>
 			<div class="pure-u-10-24" style="text-align: center !important;">
-				<%= link_to user_path do %>
+				<%= link_to user_path(@payee) do %>
 					<div style="height: 190px;">
 						<%= image_tag getUserImagePath(@payee.nickname), class: 'user-photo', id: "payee-photo" %>
 					</div>
-					<br/>
 					<span style="width: 10px;"></span><%= @payee.proper_name %>
 				<% end %>
 			</div>
@@ -97,7 +96,7 @@
 				<div class="wrapper">
 					<div id="header">
 						<div id="date">
-							<%= @payment.date %>
+							<%= @payment.date.strftime("%-m.%-d.%y") %>
 						</div>
 						<div id="message-header">
 							Message
