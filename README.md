@@ -8,7 +8,7 @@ Rather than jump through the hoops of creating an account to donate to a specifi
 
 ## How it works
 
-Majick.
+Pail uses Ruby on Rails and the prescribed MVC, or Model View Controller, methodology. Through Ruby on Rails, it has built in SQLite3 databases as well as HTML for each page on the web app.
 
 ## What it uses
 
