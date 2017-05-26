@@ -41,7 +41,8 @@
   <strong>Message Thread:</strong>
   <% unless @messages.empty? %>
     <% for m in @messages %>
-      <li><%= m.organization_user.user.name + ": " + m.message_text %></li>
+      <% @ou = OrganizationUser.find(m.sender_id) %>
+      <li><%= @ou.user.name + ": " + m.message_text %></li>
     <% end %>
   <% else %>
     This organization has no messages at the time.
