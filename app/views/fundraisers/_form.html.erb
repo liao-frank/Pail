@@ -21,7 +21,7 @@
 		</div>
 		<div class="field">
 			<%= f.label :category %><br>
-			<%= f.text_field :category %>
+			<%= f.select :category, Fundraiser::TYPES %>
 		</div>
 		<div class="field">
 			<%= f.label :goal %><br>
