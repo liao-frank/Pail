@@ -12,6 +12,7 @@ class OrganizationsController < ApplicationController
   def show
     @members = OrganizationUser.for_organization(@organization.id)
     @messages = @organization.messages.chronological.all
+    @message = Message.new
   end
 
   # GET /organizations/new

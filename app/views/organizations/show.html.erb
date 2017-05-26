@@ -37,17 +37,20 @@
   <% end %>
 </p>
 
-<p>
-  <strong>Message Thread:</strong>
-  <% unless @messages.empty? %>
-    <% for m in @messages %>
-      <% @ou = OrganizationUser.find(m.sender_id) %>
-      <li><%= @ou.user.name + ": " + m.message_text %></li>
+<div id="message_thread">
+  <p>
+    <strong>Message Thread:</strong>
+    <% unless @messages.empty? %>
+      <% for m in @messages %>
+        <% @ou = OrganizationUser.find(m.sender_id) %>
+        <li><%= @ou.user.name + ": " + m.message_text %></li>
+      <% end %>
+    <% else %>
+      This organization has no messages at the time.
     <% end %>
-  <% else %>
-    This organization has no messages at the time.
-  <% end %>
-</p>
+    <%= render partial: 'messages/new_message_form' %>
+  </p>
+</div>
 
 <%= link_to 'Edit', edit_organization_path(@organization) %> |
 <%= link_to 'Back', organizations_path %>
