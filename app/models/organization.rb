@@ -2,6 +2,7 @@ class Organization < ActiveRecord::Base
 
 	# Relationships
 	has_many :organization_users
+	has_many :messages
 
 	# Scopes
 	scope :search, ->(term) { where('name LIKE ?', "#{term}%") }
