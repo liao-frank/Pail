@@ -20,6 +20,18 @@
   <%= number_to_currency(@user.funds) %>
 </p>
 
+<p>
+  <strong>Fundraisers:</strong>
+  <% unless @fundraisers.empty? %>
+    <% for f in @fundraisers %>
+      <li>
+        <%= link_to f.name, fundraiser_path(f) %>
+      </li>
+    <% end %>
+  <% else %>
+    This person has not created any fundraisers.
+  <% end %>
+</p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', :back %>

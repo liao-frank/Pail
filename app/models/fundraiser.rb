@@ -8,6 +8,7 @@ class Fundraiser < ActiveRecord::Base
 
   # Scopes
   scope :chronological,   -> { order(start_date: :desc) }
+	scope :for_user, ->(user_id) { where(owner_id: user_id) }
 	scope :search, ->(term) { where('name LIKE ?', "#{term}%") }
 
   # Validations

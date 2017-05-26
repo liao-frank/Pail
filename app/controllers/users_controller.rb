@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def show
     @payer_payments = Payment.for_payer(@user.id).chronological.all
     @payee_payments = Payment.for_payee(@user.id).chronological.all
+    @fundraisers = Fundraiser.for_user(@user.id).chronological.all
   end
 
   # GET /users/new
