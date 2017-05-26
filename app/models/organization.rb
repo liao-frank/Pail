@@ -3,6 +3,9 @@ class Organization < ActiveRecord::Base
 	# Relationships
 	has_many :organization_users
 
+	# Scopes
+	scope :search, ->(term) { where('name LIKE ?', "#{term}%") }
+
 	# Validations
 	validate :organization_not_a_duplicate, on: :create
 

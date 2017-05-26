@@ -8,6 +8,7 @@ class Fundraiser < ActiveRecord::Base
 
   # Scopes
   scope :chronological,   -> { order(start_date: :desc) }
+	scope :search, ->(term) { where('name LIKE ?', "#{term}%") }
 
   # Validations
 	validates_date :end_date, after: :start_date, allow_blank: true

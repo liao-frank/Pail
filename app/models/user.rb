@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   # Scopes
   scope :alphabetical,  -> { order(:last_name).order(:first_name) }
+  scope :search, ->(term) { where('first_name LIKE ? OR last_name LIKE ?', "#{term}%", "#{term}%") }
 
   # Relationships
   has_many :payments
