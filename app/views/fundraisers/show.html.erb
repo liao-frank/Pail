@@ -1,4 +1,16 @@
 <style>
+	#owner-image {
+		height: 64px;
+
+		border-radius: 32px;
+	}
+	#owner-name {
+		font-size: 24px;
+
+		position: relative;
+		top: 15px;
+		right: 20px;
+	}
 	#fund-tracker {
 		font-family: Arial;
 		font-weight: bold;
@@ -42,7 +54,15 @@
 	<div class="large-basic-container">
 		<div class="pure-g">
 			<div class="pure-u-12-24">
-
+				<div class="pure-g">
+					<% ownerName = User.find_by_id(@fundraiser.owner_id).nickname %>
+					<div class="pure-u-1-5">
+						<%= image_tag getUserImagePath(ownerName), id: "owner-image" %>
+					</div>
+					<div class="pure-u-4-5">
+						<span id="owner-name"><%= ownerName %></span>
+					</div>
+				</div>
 			</div>
 			<div class="pure-u-12-24">
 				<div id="fund-tracker">
