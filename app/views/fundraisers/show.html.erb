@@ -51,6 +51,19 @@
 		width: 100%;
 		margin: 20px 0;
 	}
+
+	#user-actions a, #user-actions a:hover {
+		text-decoration: none;
+		color: #219cc8;
+	}
+	.user-action {
+		height: 84px;
+		margin: 0 auto;
+		margin-top: 20px;
+	}
+	.user-action:hover {
+		filter: brightness(0.8);
+	}
 </style>
 <p id="notice"><%= notice %></p>
 
@@ -100,8 +113,10 @@
 	</div>
 </div>
 
-<div class="full-width">
-	<%= image_tag 'icons/payment-blue.png' %>
+<div class="full-width" style="text-align: center !important;">
+	<%= link_to nil %>
+		<%= image_tag 'icons/payment-blue.png', class: "user-action" %>
+	<% end %>
 </div>
 
 <p>
