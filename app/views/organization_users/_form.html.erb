@@ -13,12 +13,8 @@
 
   <%= f.input :org_id, :as => :hidden, :input_html => { :value => @org_id } %>
   <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+  <%= f.input :role, :as => :hidden, :input_html => { :value => @role } %>
 
-  <div class="field">
-    <%= f.label :role %><br>
-    <%= f.text_field :role %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit "Yes" %>
+
 <% end %>

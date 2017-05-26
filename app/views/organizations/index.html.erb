@@ -3,23 +3,31 @@
     <p id="notice"><%= notice %></p>
 
     <h1>Listing Organizations</h1>
-
-    <table class="pure-table pure-table-horizontal">
-      <thead>
-        <tr>
-          <th>Name</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @organizations.each do |o| %>
+    <% unless @organizations.empty? %>
+      <table class="pure-table pure-table-horizontal">
+        <thead>
           <tr>
-            <td><%= link_to o.name, organization_path(o) %></td>
+            <th>Name</th>
+            <th></th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
 
+        <tbody>
+          <% @organizations.each do |o| %>
+            <tr>
+              <td><%= link_to o.name, organization_path(o) %></td>
+              <% if OrganizationUser.for_organization(o.id).map{|ou| ou.user.id}.include?(current_user.id) %>
+                <td>Already joined!</td>
+              <% else %>
+                <td><%= link_to 'Join Organization', new_organization_user_path(:org_id => o.id, :role => "member") %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      No organizations exist in the system yet.<br>
+    <% end %>
     <br>
 
     <%= link_to 'New Organization', new_organization_path %>

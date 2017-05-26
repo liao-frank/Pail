@@ -1,5 +1,11 @@
-<h1>New Organization User</h1>
+<div class="full-width">
+  <div class="small-basic-container">
+    <p id="notice"><%= notice %></p>
 
-<%= render 'form' %>
+    <h1>Confirm</h1>
+    <h3>Are you sure you want to join this organization?</h3>
+    <%= render 'form' %>
 
-<%= link_to 'Back', organization_users_path %>
+    <%= link_to 'Back', :back %>
+  </div>
+</div>

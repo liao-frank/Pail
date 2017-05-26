@@ -16,6 +16,7 @@ class OrganizationUsersController < ApplicationController
   def new
     @organization_user = OrganizationUser.new
     @org_id = params[:org_id]
+    @role = params[:role]
   end
 
   # GET /organization_users/1/edit
@@ -29,7 +30,9 @@ class OrganizationUsersController < ApplicationController
 
     respond_to do |format|
       if @organization_user.save
-        format.html { redirect_to @organization_user, notice: 'Organization user was successfully created.' }
+        format.html { 
+          redirect_to organization_path(@organization_user.org_id), notice: 'You successfully joined the organization.' 
+        }
         format.json { render :show, status: :created, location: @organization_user }
       else
         format.html { render :new }
