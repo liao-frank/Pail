@@ -1,37 +1,76 @@
 <p id="notice"><%= notice %></p>
+<style>
+	.photos {
+		margin-top: 30px;
+	}
+	a {
+		text-decoration: none !important;
+	}
+	.user-photo {
+		height: 180px;
+		border-radius: 90px;
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+		margin-bottom: 10px;
+	}
+	.user-photo:hover {
+		filter: brightness(0.8);
+	}
+	.user-name {
+		font-size: 32px;
+		color: #219cc8;
+	}
+</style>
+<div class="full-width">
+	<div class="medium-basic-container">
+		<div class="pure-g photos">
+			<div class="pure-u-10-24" style="text-align: center !important;">
+				<%= link_to user_path do %>
+					<%= image_tag getUserImagePath(@user.nickname), class: 'user-photo', id: "payer-photo" %>
+					<br/>
+				<% end %>
+			</div>
+			<div class="pure-u-14-24" style="text-align: center !important; position: relative;">
+				<div class="user-name">
+					<%= @user.proper_name + " (" + @user.nickname + ")"%> 
+				</div><br>
+        <%= mail_to(@user.email, @user.email, encode: "javascript") %><br>
+        <%= "Funds: " + number_to_currency(@user.funds) %> 
+			</div>
+			<script>
+				$(document).ready(function() {
+					$('#payer-photo').animateCss("bounceIn");
+				});
+			</script>
+  </div>
+</div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
-
-<p>
-  <strong>Nickname:</strong>
-  <%= @user.nickname %>
-</p>
-
-<p>
-  <strong>Funds:</strong>
-  <%= number_to_currency(@user.funds) %>
-</p>
-
-<p>
-  <strong>Fundraisers:</strong>
-  <% unless @fundraisers.empty? %>
-    <% for f in @fundraisers %>
-      <li>
-        <%= link_to f.name, fundraiser_path(f) %>
-      </li>
-    <% end %>
-  <% else %>
-    This person has not created any fundraisers.
-  <% end %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', :back %>
+<div class="full-width" style="margin-top: 30px;">
+  <div class="small-basic-container">
+    <div class="section light-gray">
+      <h3>Fundraisers:</h3>
+        <% unless @fundraisers.empty? %>
+          <table class="pure-table pure-table-horizontal">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Raised</th>
+                <th>Goal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for f in @fundraisers %>
+                <tr>
+                  <td><%= link_to f.name, fundraiser_path(f) %></td>
+                  <td><%= number_to_currency(f.raised) %></td>
+                  <td><%= number_to_currency(f.goal) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% else %>
+          <br>
+          This user has not created an fundraisers yet.
+        <% end %>
+    </div>
+  </div>
+</div>
