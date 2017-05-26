@@ -28,10 +28,10 @@ namespace :db do
     end
 
     # Step 2: Create fundraisers
-    users = [1,5,10,15,20,25,30,35,40,45]
+    users = [1,3,10,15,20,25,30,35,40,45]
     count = 2
     @jasons_fund = FactoryGirl.create(:fundraiser, owner_id: @jason.id, name: "Capital One Software Engineering Summit", category: "flex", goal: 10000, raised: 8000)
-    @completed_fund = FactoryGirl.create(:fundraiser, owner_id: @sarah.id, name: "Sarah's First Fundraiser", category: "threshold", goal: 10000, raised:10000)
+    @completed_fund = FactoryGirl.create(:fundraiser, owner_id: @sarah.id, name: "Sarah's First Fundraiser", category: "threshold", goal: 10000, raised: 11111)
     for u in users
       cat = %w[threshold flex].sample
       goal = Faker::Number.number(5)
@@ -42,6 +42,13 @@ namespace :db do
     end
 
     # Step 2: Create Payments
+    # payments for home screen
+    FactoryGirl.create(:payment, payer_id: 1, payee_id: 2, fundraiser_id: nil, amount: 100.00)
+    FactoryGirl.create(:payment, payer_id: 4, payee_id: 3, fundraiser_id: nil, amount: 50.00)
+    FactoryGirl.create(:payment, payer_id: 7, payee_id: 1, fundraiser_id: nil, amount: 12.34)
+    FactoryGirl.create(:payment, payer_id: 6, payee_id: 3, fundraiser_id: nil, amount: 44.44)
+    FactoryGirl.create(:payment, payer_id: 4, payee_id: 5, fundraiser_id: nil, amount: 151.12)
+    # other payments
     for u in User.all 
       payee = (1..47).to_a.sample
       f_id = Faker::Number.between(1,10)

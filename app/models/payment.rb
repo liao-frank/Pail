@@ -18,6 +18,7 @@ class Payment < ActiveRecord::Base
   scope :for_payee,       ->(payee_id) { where(payee_id: payee_id) }
   scope :for_payer,       ->(payer_id) { where(payer_id: payer_id) }
   scope :chronological,   -> { order(date: :desc) }
+  scope :by_id,           -> { order(id: :asc) }
   scope :personal,        -> { where(fundraiser_id: nil)}
   scope :fundraiser,      -> { where.not(fundraiser_id: nil) }
 

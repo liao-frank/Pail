@@ -2,6 +2,9 @@ class HomeController < ApplicationController
 	def home
 		@payments = Payment.chronological.to_a.take(10)
 		@fundraisers = Fundraiser.chronological.to_a.take(10)
+		@jason_fundraiser = Fundraiser.for_user(4).take(1)
+		@sarah_fundraiser = Fundraiser.for_user(5).take(1)
+		@good_payments = Payment.by_id.take(5)
 	end
 
 	def about
