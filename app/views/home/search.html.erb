@@ -33,7 +33,7 @@
 <% unless @organizations.empty? %>
 	<ul>
 		<% for o in @organizations do %>
-			<li><%= link_to o.name, organization_path(o) %>: created by <%= "#{o.user.name}" %></li>
+			<li><%= link_to o.name, organization_path(o) %>: created by <%= "#{o.organization_users.select{|ou| ou.role == "owner"}.user.name}" %></li>
 		<% end %>
 	</ul>
 	<p class="supertiny">&nbsp;</p>

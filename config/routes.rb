@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 	get 'contact' => 'home#contact', as: :contact
 	get 'privacy' => 'home#privacy', as: :privacy
 	get 'sandbox' => 'home#sandbox', as: :sandbox
+	get 'home/search', to: 'home#search', as: :search
 
 	get 'create_payback/:id' => 'payments#create_payback', as: :create_payback
 	get 'organization_users/new/:id' => 'payments#create_payback'

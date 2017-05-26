@@ -31,10 +31,9 @@
 				</div>
 				<div class="pure-u-10-5">
 					<p class="search">
-						<%= form_tag(nil, :method => "get", id: "search-form", class: "pure-form") do %>
-							<input type="text" placeholder="Search...">
+						<%= form_tag(search_path, :method => "get", id: "search-form", class: "pure-form") do %>
+							<%= text_field_tag :query, params[:query], placeholder: "Search..." %>
 						<% end %>
-						
 					</p>
 				</div>
 				<div class="pure-u-2-24">
