@@ -105,59 +105,88 @@
 
 <%= image_tag(getFundraiserImagePath(@fundraiser.name), id: "fundraiser-image") %>
 
-<div class="full-width">
-	<div class="medium-basic-container">
-		<div class="section light-gray">
-			<!--  -->
-		</div>
-	</div>
-</div>
-
 <div class="full-width" style="text-align: center !important;">
-	<%= link_to nil do %>
+	<%= link_to new_payment_path(:source => "fundraiser", :fund_id => @fundraiser.id) do %>
 		<%= image_tag 'icons/payment-blue.png', class: "user-action" %>
 	<% end %>
 </div>
 
-<p>
-	<strong>Owner:</strong>
-	<%= @fundraiser.owner_id %>
-</p>
-
-<p>
-	<strong>Name:</strong>
-	<%= @fundraiser.name %>
-</p>
-
-<p>
-	<strong>Category:</strong>
-	<%= @fundraiser.category %>
-</p>
-
-<p>
-	<strong>Goal:</strong>
-	<%= @fundraiser.goal %>
-</p>
-
-<p>
-	<strong>Raised:</strong>
-	<%= @fundraiser.raised %>
-</p>
-
-<p>
-	<strong>Start date:</strong>
-	<%= @fundraiser.start_date %>
-</p>
-
-<p>
-	<strong>End date:</strong>
-	<%= @fundraiser.end_date %>
-</p>
-
-<p>
-	<strong>Description:</strong>
-	<%= @fundraiser.description %>
-</p>
-
-<%= link_to 'Edit', edit_fundraiser_path(@fundraiser) %> |
-<%= link_to "Contribute to this fundraiser", new_payment_path(:source => "fundraiser", :fund_id => @fundraiser.id) %>
+<div class="full-width">
+	<div class="medium-basic-container">
+		<style>
+			.wrapper {
+				margin: 0 auto;
+				font-family: "Segoe UI";
+			}
+			#header {
+				min-height: 50px;
+			}
+			#desc-header, #date {
+				font-size: 24px;
+				color: #219cc8;
+			}
+			#desc-header, #name-header {
+				float: right;
+			}
+			#date, #amount {
+				float: left;
+			}
+			#desc-body {
+				color: #2d2d2d;
+			}
+			#start-date {
+				font-size: 10px;
+				font-family: "Segoe UI";
+				color: #219cc8;
+			}
+			#amount, #name-header {
+				font-size: 16px;
+				color: #219cc8;
+			}
+		</style>
+			<div class="section light-gray">
+				<div class="wrapper">
+					<div id="header">
+						<div id="date">
+							<% if @fundraiser.end_date.nil? %>
+								<div id="start-date">
+									<small>Start Date</small>
+								</div>
+								<%= @fundraiser.start_date.strftime("%-m.%-d.%y") %>
+							<% else %>
+								<%= @fundraiser.start_date.strftime("%-m.%-d.%y") - @fundraiser.end_date.strftime("%-m.%-d.%y") %>
+							<% end %>
+						</div>
+						<div id="desc-header">
+							Description
+						</div>
+					</div>
+					<div id="desc-body">
+						<%= @fundraiser.description %>
+					</div>
+				</div>
+			</div>
+			<br>
+			<% unless @payments.empty? %>
+				<% for p in @payments %>
+					<div class="section light-gray small-basic-container">
+						<div class="wrapper">
+							<div id="header">
+								<div id="amount">
+									<%= number_to_currency(p.amount) %>
+								</div>
+								<div id="name-header">
+									<%= p.date.strftime("%-m.%-d.%y") %>
+								</div>
+							</div>
+							<div id="desc-body">
+								<%= p.payer.proper_name + ": " + p.message %>
+							</div>
+						</div>
+					</div>
+					<br>
+				<% end %>
+			<% else %>
+			<% end %>
+	</div>
+</div>
