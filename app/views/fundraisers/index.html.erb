@@ -1,41 +1,59 @@
+<style>
+	.add-fundraiser-icon {
+		height: 32px;
+
+		position: relative;
+		top: 5px;
+	}
+	.add-fundraiser-icon:hover {
+		filter: brightness(0.6);
+	}
+</style>
 <div class="full-width">
-  <div class="large-basic-container">
-    <p id="notice"><%= notice %></p>
+	<div class="medium-basic-container">
+		<p id="notice"><%= notice %></p>
 
-    <h1>Listing Fundraisers</h1>
+		<h1>Fundraisers <%= link_to new_fundraiser_path do %><%= image_tag 'icons/plus-blue.png', class: "add-fundraiser-icon" %><% end %></h1>
 
-    <table class="pure-table pure-table-horizontal">
-      <thead>
-        <tr>
-          <th>Owner</th>
-          <th>Name</th>
-          <th>Raised</th>
-          <th>Goal</th>
-          <th>Start date</th>
-          <th>End date</th>
-        </tr>
-      </thead>
+		<% @fundraisers.each do |fundraiser| %>
+			<% @fundraiser = fundraiser %>
+			<div class="fundraiser-card-space" style="min-height: 280px;">
+				<%= render 'fundraiser_card' %>
+			</div>
+		<% end %>
 
-      <tbody>
-        <% @fundraisers.each do |fundraiser| %>
-          <tr>
-            <td><%= link_to User.find(fundraiser.owner_id).proper_name, user_path(User.find(fundraiser.owner_id)) %></td>
-            <td><%= link_to fundraiser.name, fundraiser_path(fundraiser) %></td>
-            <td><%= number_to_currency(fundraiser.raised) %></td>
-            <td><%= number_to_currency(fundraiser.goal) %></td>
-            <td><%= fundraiser.start_date.strftime("%m/%d/%y") %></td>
-            <% unless fundraiser.end_date.nil? %>
-              <td><%= fundraiser.end_date.strftime("%m/%d/%y") %></td>
-            <% else %>
-              <td>N/A</td>
-            <% end %>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+		<!-- <table class="pure-table pure-table-horizontal">
+			<thead>
+				<tr>
+					<th>Owner</th>
+					<th>Name</th>
+					<th>Raised</th>
+					<th>Goal</th>
+					<th>Start date</th>
+					<th>End date</th>
+				</tr>
+			</thead>
 
-    <br>
+			<tbody>
+				<% @fundraisers.each do |fundraiser| %>
+					<tr>
+						<td><%= link_to User.find(fundraiser.owner_id).proper_name, user_path(User.find(fundraiser.owner_id)) %></td>
+						<td><%= link_to fundraiser.name, fundraiser_path(fundraiser) %></td>
+						<td><%= number_to_currency(fundraiser.raised) %></td>
+						<td><%= number_to_currency(fundraiser.goal) %></td>
+						<td><%= fundraiser.start_date.strftime("%m/%d/%y") %></td>
+						<% unless fundraiser.end_date.nil? %>
+							<td><%= fundraiser.end_date.strftime("%m/%d/%y") %></td>
+						<% else %>
+							<td>N/A</td>
+						<% end %>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
 
-    <%= link_to 'New Fundraiser', new_fundraiser_path %>
-  </div>
+		<br> -->
+
+		<%= link_to 'New Fundraiser', new_fundraiser_path %>
+	</div>
 </div>

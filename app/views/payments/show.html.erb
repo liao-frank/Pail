@@ -2,6 +2,7 @@
 <style>
 	.photos {
 		margin-top: 30px;
+		font-size: 18px;
 	}
 	.payment-amount {
 		font-size: 32px;
@@ -24,13 +25,13 @@
 		display: none;
 	}
 	#arrow {
-		width: 200px;
+		margin-top: 20px;
 		height: 50px;
 		filter: saturate(0.6);
 	}
 </style>
 <div class="full-width">
-	<div class="medium-basic-container">
+	<div class="medium-basic-container" style="width: 650px;">
 		<div class="pure-g photos">
 			<div class="pure-u-8-24" style="text-align: center !important;">
 				<%= link_to user_path(@payer) do %>
@@ -43,7 +44,7 @@
 				<div class="payment-amount">
 					<%= number_to_currency(@payment.amount) %>
 				</div>
-				<%= image_tag 'icons/arrow-turquoise.png', id: 'arrow' %>
+				<%= image_tag 'icons/double-arrow-blue.png', id: 'arrow' %>
 			</div>
 			<div class="pure-u-8-24" style="text-align: center !important;">
 				<%= link_to user_path(@payee) do %>

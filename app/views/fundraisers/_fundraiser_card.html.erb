@@ -1,0 +1,63 @@
+<style>
+	.fundraiser-card {
+		min-height: 200px;
+		margin-bottom: 20px;
+	}
+	.fundraiser-title {
+		height: 48px;
+	}
+	.fundraiser-title .user-image {
+		height: 48px;
+		border-radius: 24px;
+	}
+	.fundraiser-title .fundraiser-image {
+		width: 100%;
+	}
+</style>
+<% ownerName = (User.find_by_id(@fundraiser.owner_id)).nickname %>
+<div class="fundraiser-card">
+	<%= link_to fundraiser_path(@fundraiser.id) do %>
+		<div class="fundraiser-title">
+			<div class="pure-g">
+				<div class="pure-u-3-24">
+					<%= image_tag getUserImagePath(ownerName), class: "user-image" %>
+				</div>
+				<div class="pure-u-21-24" class="funds">
+					<div style="float: left; font-size: 18px; color: #219cc8; position: relative; top: 15px;">
+						<%= @fundraiser.name %>
+					</div>
+					<div style="float: right">
+						<div style="font-size: 12px;"><%= @fundraiser.end_date == nil ? 'Start Date' : 'Dates' %></div>
+						<div>
+							<%= @fundraiser.start_date.strftime("%-m-%-d-%y") %>
+							<% if @fundraiser.end_date != nil %>
+								- <%= @fundraiser.end_date.strftime("%-m-%-d-%y") %>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<%= image_tag getFundraiserImagePath(@fundraiser.name), class: "fundraiser-image" %>
+			<div class="pure-g">
+				<div class="pure-u-1-1">
+					<div style="float: right; font-size: 20px; color: #219cc8; position: relative; top: 15px;">
+						<%= number_to_currency(@fundraiser.raised) %>&nbsp;/&nbsp;<%= number_to_currency(@fundraiser.goal) %>
+					</div>
+				</div>
+			</div>
+		</div>
+	<% end %>
+</div>
+<script>
+	// darken
+	$('.fundraiser-card').mouseover(function() {
+		$(this).find('.fundraiser-image').css("filter", "brightness(0.6)");
+	});
+	$('.fundraiser-card').mouseout(function() {
+		$(this).find('.fundraiser-image').css("filter", "brightness(1)");
+	});
+	// click bounce
+	$('.fundraiser-card').click(function() {
+		$(this).animateCss('bounce');
+	});
+</script>
