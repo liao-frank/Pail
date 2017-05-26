@@ -9,7 +9,7 @@
 	width: 187px;
 
 	margin: 0 auto;
-	margin-top: 75px;
+	margin-top: 65px;
 	margin-bottom: 30px;
 }
 #coins-pail {
@@ -31,6 +31,25 @@
 #balance {
 	display: none;
 	font-size: 48px;
+}
+#user-actions {
+	margin: 0 auto;
+	width: 400px;
+	margin-bottom: 20px;
+
+	position: relative;
+	left: 28px;
+}
+#user-actions a, #user-actions a:hover {
+	text-decoration: none;
+	color: #219cc8;
+}
+.user-action {
+	height: 84px;
+	margin: 0 auto;
+}
+.user-action:hover {
+	filter: brightness(0.8);
 }
 </style>
 <p id="notice"><%= notice %></p>
@@ -61,6 +80,28 @@
 </div>
 
 <div class="full-width">
+	<div id="user-actions">
+		<div class="pure-g">
+			<div class="pure-u-1-3">
+				<%= link_to nil do %>
+					<%= image_tag "icons/building-icon-blue.png", class: "user-action" %>
+					<span style="width: 10px;"></span>Create Org
+				<% end %>
+			</div>
+			<div class="pure-u-1-3">
+				<%= link_to nil do %>
+					<%= image_tag "icons/bag-icon-blue.png", class: "user-action" %>
+					&nbsp;Fundraise
+				<% end %>
+			</div>
+			<div class="pure-u-1-3">
+				<%= link_to new_payment_path(:source => "personal") do %>
+					<%= image_tag "icons/handshake-icon-blue.png", class: "user-action" %><br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pay
+				<% end %>
+			</div>
+		</div>
+	</div>
 	<div class="small-basic-container section light-gray">
 		<h3 style="margin: 0;">Your Payments</h3>
 
