@@ -15,6 +15,7 @@ class MessagesController < ApplicationController
   # GET /messages/new
   def new
     @message = Message.new
+    @org_id = params[:org_id]
   end
 
   # GET /messages/1/edit
@@ -28,11 +29,9 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.save
         format.html { 
-          redirect_to @message, notice: 'Message was successfully created.' 
           @organization = @message.organization
-          @messages = @organization.messages.chronological.all
+          redirect_to organization_path(@organization), notice: 'Message was successfully posted.' 
         }
-        format.js
       else
         format.html { render :new }
         format.json { render json: @message.errors, status: :unprocessable_entity }
@@ -72,6 +71,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:message_text)
+      params.require(:message).permit(:organization_id, :sender_id, :likes, :message_text, :date_time)
     end
 end
