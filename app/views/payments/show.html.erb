@@ -27,27 +27,25 @@
 		width: 200px;
 		height: 50px;
 		filter: saturate(0.6);
-		position: relative;
-		right: 25px;
 	}
 </style>
 <div class="full-width">
 	<div class="medium-basic-container">
 		<div class="pure-g photos">
-			<div class="pure-u-10-24" style="text-align: center !important;">
+			<div class="pure-u-8-24" style="text-align: center !important;">
 				<%= link_to user_path(@payer) do %>
 					<%= image_tag getUserImagePath(@payer.nickname), class: 'user-photo', id: "payer-photo" %>
 					<br/>
 					<span style="width: 10px;"></span><%= @payer.proper_name %>
 				<% end %>
 			</div>
-			<div class="pure-u-4-24" style="text-align: center !important; position: relative; top: 30px;">
+			<div class="pure-u-8-24" style="text-align: center !important; position: relative; top: 30px;">
 				<div class="payment-amount">
 					<%= number_to_currency(@payment.amount) %>
 				</div>
 				<%= image_tag 'icons/arrow-turquoise.png', id: 'arrow' %>
 			</div>
-			<div class="pure-u-10-24" style="text-align: center !important;">
+			<div class="pure-u-8-24" style="text-align: center !important;">
 				<%= link_to user_path(@payee) do %>
 					<div style="height: 190px;">
 						<%= image_tag getUserImagePath(@payee.nickname), class: 'user-photo', id: "payee-photo" %>
@@ -84,10 +82,10 @@
 						color: #219cc8;
 					}
 					#message-header {
-						float: right;
+						float: left;
 					}
 					#date {
-						float: left;
+						float: right;
 					}
 					#message-body {
 						color: #2d2d2d;
@@ -96,7 +94,7 @@
 				<div class="wrapper">
 					<div id="header">
 						<div id="date">
-							<%= @payment.date.strftime("%-m.%-d.%y") %>
+							<%= @payment.date.strftime("%-m-%-d-%y") %>
 						</div>
 						<div id="message-header">
 							Message

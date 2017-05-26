@@ -103,7 +103,7 @@
 	<div class="small-basic-container section light-gray">
 		<h3 style="margin: 0;">Your Payments</h3>
 
-		<h4>Payments Sent</h4>
+		<h4><%= @payer_payments.empty? ? 'Payments Sent' : '' %></h4>
 		<% unless @payer_payments.empty? %>
 			<!-- Table when user = payer -->
 			<table class="pure-table pure-table-horizontal">

@@ -14,7 +14,7 @@
 		<% unless @source == "fundraiser" %>
 			<div class="field">
 				<%= f.label :payee_id %><br>
-				<%= f.collection_select :payee_id, User.alphabetical.all.to_a - [current_user], :id, :name %>
+				<%= f.collection_select :payee_id, User.alphabetical.all.to_a - [current_user], :id, :proper_name %>
 				<style>
 					.user-photo {
 						height: 64px;
@@ -23,6 +23,7 @@
 						margin-bottom: 10px;
 					}
 				</style>
+				<div style="color: #219cc8; font-size: 15px; position: relative; bottom: 5px;">Recent Activity with...</div>
 				<span class="photo-one">
 					<%= image_tag('users/jason.jpg', class: 'user-photo', id: 'jason-photo') %>
 					<script>
@@ -61,6 +62,8 @@
 					});
 
 					$('.user-photo').click(function(){
+						$('.user-photo').css('filter', 'brightness(1)');
+						$(this).css('filter', 'brightness(0.5)');
 						$(this).animateCss('bounce');
 					});
 				</script>
