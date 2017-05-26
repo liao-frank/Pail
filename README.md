@@ -28,7 +28,7 @@ Windows: https://www.youtube.com/watch?v=OHgXELONyTQ
 
 Note: For Mac, you might have to install Nokogiri by itself if you are on the latest version of Mac OS (Sierra and Mavericks) -- if so, run the following:
 
-`gem install nokogiri -- --use-system-libraries=true --with-xml2-include=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/libxml2/`
+`$ gem install nokogiri -- --use-system-libraries=true --with-xml2-include=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/libxml2/`
 
 [For more info, check out this Stack Overflow post, 'Installing Nokogiri on OSX 10.10 Yosemite'](https://stackoverflow.com/questions/24091869/installing-nokogiri-on-osx-10-10-yosemite)
 
