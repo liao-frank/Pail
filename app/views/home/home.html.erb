@@ -8,11 +8,22 @@
 	}
 
 	.user-image {
-		width:48px;
+		width: 48px;
 	}
 
 	#parent {
 		display: flex;
+	}
+
+	.w3-sidebar a {
+		margin: 20px 0;
+		padding-left: 30px;
+
+		width: 100%;
+		text-decoration: none !important;
+	}
+	.w3-sidebar a:hover {
+		/*background-color: white;*/
 	}
 
 </style>
@@ -22,10 +33,10 @@
 	<% end %>
 	<% if logged_in? %>
 	<h3 class="w3-bar-item">Options</h3>
-	<%= link_to "- Pay User", new_payment_path %><br>
-	<%= link_to "- View Payments", payments_path %><br>
-	<%= link_to "- View Fundraisers", fundraisers_path %><br>
-	<%= link_to "- View Your Organization", organizations_path %><br>
+	<%= link_to "Pay User", new_payment_path %><br>
+	<%= link_to "View Payments", payments_path %><br>
+	<%= link_to "View Fundraisers", fundraisers_path %><br>
+	<%= link_to "View Your Organization", organizations_path %><br>
 	<% end %>
 </div>
 
