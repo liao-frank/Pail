@@ -1,5 +1,50 @@
-<h1>New Fundraiser</h1>
+<style>
+	#content .center {
+		position: relative;
+		top: 30px;
+	}
+	#content form {
+		position: relative;
+	}
+	#content .center {
+		width: 350px;
+	}
+	#content label {
+		position: relative;
+		font-size: 15px;
+		bottom: 5px;
+	}
+	#content input,
+	#content select {
+		width: 300px;
+		height: 35px;
 
-<%= render 'form' %>
+		margin-bottom: 35px;
+	}
 
-<%= link_to 'Back', fundraisers_path %>
+	#content select {
+		width: 97px;
+	}
+
+	#content textarea {
+		width: 300px;
+		height: 100px;
+
+		margin-bottom: 35px;
+	}
+
+	#content select {
+		height: 45px;
+	}
+	#content .light-gray-border {
+		padding: 30px 20px;
+	}
+</style>
+
+<div class="center">
+	<h1>New Fundraiser</h1>
+
+	<%= render 'form' %>
+
+	<%= link_to 'Back', fundraisers_path %>
+</div>
