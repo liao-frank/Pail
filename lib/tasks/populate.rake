@@ -31,6 +31,7 @@ namespace :db do
     users = [1,5,10,15,20,25,30,35,40,45]
     count = 2
     @jasons_fund = FactoryGirl.create(:fundraiser, owner_id: @jason.id, name: "Capital One Software Engineering Summit", category: "flex", goal: 10000, raised: 8000)
+    @completed_fund = FactoryGirl.create(:fundraiser, owner_id: @sarah.id, name: "Sarah's First Fundraiser", category: "threshold", goal: 10000, raised:10000)
     for u in users
       cat = %w[threshold flex].sample
       goal = Faker::Number.number(5)
