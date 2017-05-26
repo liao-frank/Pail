@@ -105,10 +105,10 @@
 	<div class="small-basic-container section light-gray">
 		<h3 style="margin: 0;">Your Payments</h3>
 
-		<h5>Payments Sent</h5>
+		<h4>Payments Sent</h4>
 		<% unless @payer_payments.empty? %>
 			<!-- Table when user = payer -->
-			<table>
+			<table class="pure-table pure-table-horizontal">
 				<thead>
 					<tr>
 						<th>Payment ID</th>
@@ -134,12 +134,13 @@
 		<% end %>
 		<br>
 
-		<h5>Payments Received</h5>
+		<h4>Payments Received</h4>
 		<% unless @payee_payments.empty? %>
 			<!-- Table when user = payee -->
-			<table>
+			<table class="pure-table pure-table-horizontal">
 				<thead>
 					<tr>
+						<th>Payment ID</th>
 						<th>Payer</th>
 						<th>Amount</th>
 						<th>Date</th>
@@ -150,11 +151,14 @@
 				<tbody>
 					<% for p in @payee_payments %>
 						<tr>
+							<td><%= link_to p.id, payment_path(p) %></td>
 							<td><%= User.find(p.payer_id).proper_name %></td>
 							<td><%= number_to_currency(p.amount) %></td>
 							<td><%= p.date.strftime("%m/%d/%y") %></td>
 							<% unless p.is_paid_back %>
 								<td><%= link_to "Pay Back", create_payback_path(p) %></td>
+							<% else %>
+								<td></td>
 							<% end %>
 						</tr>
 					<% end %>
@@ -163,7 +167,7 @@
 		<% else %>
 			No payments exist in our system yet.
 		<% end %>
-		<br>
+		<br><br>
 
 		<%= link_to 'New Payment', new_payment_path(:source => "personal") %>
 

@@ -5,7 +5,7 @@ FactoryGirl.define do
     last_name "One"
     email { |u| "#{u.first_name[0]}#{u.last_name.gsub(/\s+/,"")}#{(1..99).to_a.sample}@example.com".downcase }
     nickname { |u| "#{u.first_name[0]}#{u.last_name}".downcase }
-    funds 100
+    funds 500
     password "secret"
     password_confirmation "secret"
   end
