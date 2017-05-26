@@ -55,7 +55,12 @@ class PaymentsController < ApplicationController
       if @payment.save
         format.html { 
           reduce_add_funds(@payment.payer_id, @payment.payee_id)
-          redirect_to @payment, notice: 'Payment was successfully created.' 
+          if @payment.fundraiser_id.nil?
+            redirect_to @payment, notice: 'Payment was successfully created.' 
+          else
+            event = Fundraiser.find(@payment.fundraiser_id)
+            redirect_to fundraiser_path(event), notice: 'Payment was successfully created.' 
+          end 
         }
         format.json { render :show, status: :created, location: @payment }
       else

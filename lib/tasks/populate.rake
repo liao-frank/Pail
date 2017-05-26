@@ -35,7 +35,8 @@ namespace :db do
       cat = %w[threshold flex].sample
       goal = Faker::Number.number(5)
       raised = Faker::Number.between(0,100)
-      FactoryGirl.create(:fundraiser, name: "Fundraiser #{count}", category: cat, goal: goal, raised: raised)
+      owner = Faker::Number.between(2,4)
+      FactoryGirl.create(:fundraiser, owner_id: owner, name: "Fundraiser #{count}", category: cat, goal: goal, raised: raised)
     end
 
     # Step 2: Create Payments
