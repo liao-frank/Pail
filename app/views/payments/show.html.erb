@@ -72,7 +72,41 @@
 	<div class="full-width" style="margin-top: 30px;">
 		<div class="small-basic-container">
 			<div class="section light-gray">
-			<!-- Info goes here -->
+				<style>
+					.wrapper {
+						margin: 0 auto;
+						font-family: "Segoe UI";
+					}
+					#header {
+						min-height: 50px;
+					}
+					#message-header, #date {
+						font-size: 24px;
+						color: #219cc8;
+					}
+					#message-header {
+						float: right;
+					}
+					#date {
+						float: left;
+					}
+					#message-body {
+						color: #2d2d2d;
+					}
+				</style>
+				<div class="wrapper">
+					<div id="header">
+						<div id="date">
+							<%= @payment.date %>
+						</div>
+						<div id="message-header">
+							Message
+						</div>
+					</div>
+					<div id="message-body">
+						<%= @payment.message %>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
