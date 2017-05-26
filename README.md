@@ -17,13 +17,19 @@ Pail uses Ruby On Rails as a way to create this app.
 ## Contacts
 
 Winston Chu:
+
 winston_chu@gmail.com
+
 +1 252-532-2536
 
 Frank Liao:
+
 frank_liao@gmail.com
+
 +1 634-253-2312
 
 Ben Catarevas:
+
 ben_catarevas@gmail.com
+
 +1 256-756-2145
