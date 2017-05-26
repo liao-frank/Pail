@@ -16,11 +16,11 @@ Pail uses Ruby On Rails as a way to create this app.
 
 ## Installation
 
-1. Clone repo using `git clone https://github.com/C1-SoftwareEngineeringSummit/team1`
+1. Clone repo using `$ git clone https://github.com/C1-SoftwareEngineeringSummit/team1`
 
 2. Make sure you have Ruby installed as well as Ruby on Rails
 
-### Mac Ruby/Ruby on Rails Installation
+### Ruby/Ruby on Rails Installation
 
 Mac: https://www.youtube.com/watch?v=3Lp5XP8pWkU
 
@@ -34,9 +34,9 @@ Note: For Mac, you might have to install Nokogiri by itself if you are on the la
 
 3. Once you have Ruby and Ruby on Rails installed, type one of the following to run the server locally:
 
-`rails s`
+`$ rails s`
 
-`rake db:population`
+`$ rake db:population`
 
 ## Contacts
 
