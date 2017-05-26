@@ -100,7 +100,7 @@
 						<div id="fund-tracker-foreground"></div>
 						<script>
 							$(document).ready(function() {
-								var percentage = '<%= (@fundraiser.raised / @fundraiser.goal).round(2) * 100 %>%';
+								var percentage = '<%= (@fundraiser.raised / @fundraiser.goal).round(2) * 100 > 100 ? 100 : (@fundraiser.raised / @fundraiser.goal).round(2) * 100 %>%';
 								$('#fund-tracker-foreground').css('width', percentage);
 							});
 						</script>
