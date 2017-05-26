@@ -30,6 +30,8 @@ Note: For Mac, you might have to install Nokogiri by itself if you are on the la
 
 `gem install nokogiri -- --use-system-libraries=true --with-xml2-include=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/libxml2/`
 
+[For more info, check out this Stack Overflow post, 'Installing Nokogiri on OSX 10.10 Yosemite'](https://stackoverflow.com/questions/24091869/installing-nokogiri-on-osx-10-10-yosemite)
+
 3. Once you have Ruby and Ruby on Rails installed, type one of the following to run the server locally:
 
 `rails s`
