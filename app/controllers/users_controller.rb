@@ -13,6 +13,8 @@ class UsersController < ApplicationController
     @payer_payments = Payment.for_payer(@user.id).chronological.all
     @payee_payments = Payment.for_payee(@user.id).chronological.all
     @fundraisers = Fundraiser.for_user(@user.id).chronological.all
+    o_users = OrganizationUser.for_user(@user.id).all
+    @organizations = o_users.map{|ou| Organization.find(ou.org_id)}
   end
 
   # GET /users/new

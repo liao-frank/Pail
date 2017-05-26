@@ -87,6 +87,29 @@
         <% else %>
           This user has not created any fundraisers yet.
         <% end %>
+			<br>
+      <h3 style="margin: 0; margin-bottom: 20px;">Organizations</h3>
+        <% unless @organizations.empty? %>
+          <table class="pure-table pure-table-horizontal">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for o in @organizations %>
+                <tr>
+                  <td><%= link_to o.name, organization_path(o) %></td>
+                  <% r = OrganizationUser.where(org_id: o.id, user_id: @user.id).first %>
+									<td><%= r.role %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% else %>
+          This user is not part of any organizations yet.
+        <% end %>
     </div>
   </div>
 </div>
