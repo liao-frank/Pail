@@ -1,16 +1,99 @@
 <style>
-
+	#featured-fundraisers-label,
+	#recent-payments-label {
+		font-size: 36px;
+		/*color: #219cc8;*/
+		margin-top: 50px;
+		margin-bottom: 35px;
+	}
 </style>
 
 <div class="full-width">
-	<div class="large-container">
-		<div class="pure-g">
-			<div  class="pure-u-1-2">
-
+	<div class="large-basic-container">
+		<div id="featured-fundraisers-label">Featured Fundraisers</div>
+		<div id="featured-fundraisers" class="pure-g">
+			<div class="pure-u-1-2">
+				<% @fundraiser = @jason_fundraiser %>
+				<%= render 'fundraiser_card' %>
 			</div>
 			<div  class="pure-u-1-2">
-
+				<% @fundraiser = @sarah_fundraiser %>
+				<%= render 'fundraiser_card' %>
 			</div>
+		</div>
+	</div>
+	<div class="medium-basic-container">
+		<div id="recent-payments-label">Friend Activity</div>
+		<div id="recent-payments" class="section light-gray">
+			<style>
+				* {
+					text-decoration: none !important;
+				}
+				#recent-payments .payment-row {
+					padding: 10px 10px;
+
+					border-radius: 7px;
+					transition: 0.2s !important;
+					transition-delay: 0s !important;
+
+					color: #000 !important;
+				}
+				#recent-payments .payment-row:hover {
+					filter: brightness(0.7);
+					background-color: #fff;
+				}
+				#recent-payments .payment-row .center-image {
+					text-align: center !important;
+				}
+				#recent-payments .user-image {
+					height: 50px;
+					border-radius: 25px;
+				}
+				#recent-payments .arrow-image {
+					height: 32px;
+
+					position: relative;
+					top: 10px;
+				}
+				#recent-payments .payment-data {
+					font-family: "Segoe UI";
+					letter-spacing: 0;
+					font-size: 20px;
+
+					position: relative;
+					top: 10px;
+				}
+			</style>
+			<% for payment in @good_payments %>
+				<%= link_to payment_path(payment.id) do %>
+					<div class="payment-row">
+						<div class="pure-g">
+							<div class="pure-u-2-24 center-image">
+								<% userName = (User.find_by_id(payment.payer_id)).nickname %>
+								<%= image_tag getUserImagePath(userName), class: "user-image" %>
+							</div>
+							<div class="pure-u-2-24 center-image">
+								<%= image_tag "icons/double-arrow-blue.png", class: "arrow-image"%>
+							</div>
+							<div class="pure-u-2-24 center-image">
+								<% userName = (User.find_by_id(payment.payee_id)).nickname %>
+								<%= image_tag getUserImagePath(userName), class: "user-image" %>
+							</div>
+							<div class="pure-u-1-24">&nbsp;</div>
+							<div class="pure-u-16-24 payment-data">
+								<div style="float: left;">
+									<%= number_to_currency(payment.amount) %>
+								</div>
+								<div style="float: right;">
+									<%= payment.date.strftime("%-m-%-d-%y") %>
+								</div>
+							</div>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
+			<script>
+			</script>
 		</div>
 	</div>
 </div>
