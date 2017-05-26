@@ -16,10 +16,14 @@
           <% @organizations.each do |o| %>
             <tr>
               <td><%= link_to o.name, organization_path(o) %></td>
-              <% if OrganizationUser.for_organization(o.id).map{|ou| ou.user.id}.include?(current_user.id) %>
-                <td>Already joined!</td>
+              <% if logged_in? %>
+                <% if OrganizationUser.for_organization(o.id).map{|ou| ou.user.id}.include?(current_user.id) %>
+                  <td>Already joined!</td>
+                <% else %>
+                  <td><%= link_to 'Join Organization', new_organization_user_path(:org_id => o.id, :role => "member") %></td>
+                <% end %>
               <% else %>
-                <td><%= link_to 'Join Organization', new_organization_user_path(:org_id => o.id, :role => "member") %></td>
+                <td></td>
               <% end %>
             </tr>
           <% end %>
