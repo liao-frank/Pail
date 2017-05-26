@@ -56,18 +56,19 @@
 			<div class="pure-u-12-24">
 				<div class="pure-g">
 					<% ownerName = User.find_by_id(@fundraiser.owner_id).nickname %>
+					<% ownerDisplayName = User.find_by_id(@fundraiser.owner_id).proper_name %>
 					<div class="pure-u-1-5">
 						<%= image_tag getUserImagePath(ownerName), id: "owner-image" %>
 					</div>
 					<div class="pure-u-4-5">
-						<span id="owner-name"><%= ownerName %></span>
+						<span id="owner-name"><%= ownerDisplayName %></span>
 					</div>
 				</div>
 			</div>
 			<div class="pure-u-12-24">
 				<div id="fund-tracker">
 					<div id="fund-tracker-bar">
-						<%= @fundraiser.raised %>&nbsp;&nbsp;<span class="sep">/</span>&nbsp;&nbsp;<%= @fundraiser.goal %>
+						<%= number_to_currency(@fundraiser.raised) %>&nbsp;&nbsp;/&nbsp;&nbsp;<%= number_to_currency(@fundraiser.goal) %>
 						<div id="fund-tracker-background"></div>
 						<div id="fund-tracker-foreground"></div>
 						<script>
