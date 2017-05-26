@@ -7,8 +7,12 @@
 		min-height: 100%;
 	}
 
+	.user-image {
+		width:48px;
+	}
+
 </style>
-<!-- Sidebar -->
+
 <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
 	<% if !logged_in? %>
 	<h3 class="w3-bar-item"></h3>
@@ -25,7 +29,7 @@
 <div class="small-basic-container">
 	<% for p in @payments %>
 	<div class="pure-g">
-		<div class="pure-u-1-5">
+		<div class="pure-u-2-24">
 			<%= image_tag getUserImagePath(p.payer.nickname), class: 'user-image' %>
 		</div>
 		<% end %>
@@ -35,7 +39,7 @@
 <div class="small-basic-container">
 	<% for f in @fundraisers %>
 	<div class="pure-g">
-		<div class="pure-u-1-5">
+		<div class="pure-u-1-24">
 			<%= image_tag getFundraiserImagePath(f.name), class: 'user-image' %>
 		</div>
 	</div>
