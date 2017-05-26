@@ -1,20 +1,20 @@
-== Pail
+# Pail
 
-# What is it?
+## What is it?
 
 Pail is an app that streamlines the process of donating to fundraisers, charities, and makes it easy to pay other users, all in one location.
 
 Rather than jump through the hoops of creating an account to donate to a specific user for a fundraiser, Pail allows users to create their own organizations or fundraisers to receive donations, as well as letting users pay other users. There's no need for external applications to bridge the two together.
 
-# How it works
+## How it works
 
 Majick.
 
-# What it uses
+## What it uses
 
 Pail uses Ruby On Rails as a way to create this app.
 
-# Contacts
+## Contacts
 
 Winston Chu:
 winston_chu@gmail.com
