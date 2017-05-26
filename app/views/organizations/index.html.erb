@@ -1,32 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div class="full-width">
+  <div class="small-basic-container">
+    <p id="notice"><%= notice %></p>
 
-<h1>Listing Organizations</h1>
+    <h1>Listing Organizations</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th></th>
-    </tr>
-  </thead>
+    <table class="pure-table pure-table-horizontal">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @organizations.each do |organization| %>
-      <tr>
-        <td><%= organization.name %></td>
-        <td><%= organization.description %></td>
-        <td><%= link_to 'Show', organization %></td>
-        <% if OrganizationUser.for_organization(organization.id).map{|ou| ou.user.id}.include?(current_user.id) %>
-          <td>Already joined!</td>
-        <% else %>
-          <td><%= link_to 'Join Organization', new_organization_user_path(:org_id => organization.id) %></td>
+      <tbody>
+        <% @organizations.each do |o| %>
+          <tr>
+            <td><%= link_to o.name, organization_path(o) %></td>
+          </tr>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </tbody>
+    </table>
 
-<br>
+    <br>
 
-<%= link_to 'New Organization', new_organization_path %>
+    <%= link_to 'New Organization', new_organization_path %>
+  </div>
+</div>

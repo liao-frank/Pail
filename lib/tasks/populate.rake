@@ -35,7 +35,7 @@ namespace :db do
     for u in users
       cat = %w[threshold flex].sample
       goal = Faker::Number.number(5)
-      raised = Faker::Number.between(0,100)
+      raised = Faker::Number.between(10000,30000)
       owner = Faker::Number.between(2,4)
       FactoryGirl.create(:fundraiser, owner_id: owner, name: "Fundraiser #{count}", category: cat, goal: goal, raised: raised)
       count += 1

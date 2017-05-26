@@ -1,37 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="full-width">
+  <div class="large-basic-container">
+    <p id="notice"><%= notice %></p>
 
-<h1>Listing Fundraisers</h1>
+    <h1>Listing Fundraisers</h1>
 
-<table class="pure-table pure-table-horizontal">
-  <thead>
-    <tr>
-      <th>Owner</th>
-      <th>Name</th>
-      <th>Raised</th>
-      <th>Goal</th>
-      <th>Start date</th>
-      <th>End date</th>
-    </tr>
-  </thead>
+    <table class="pure-table pure-table-horizontal">
+      <thead>
+        <tr>
+          <th>Owner</th>
+          <th>Name</th>
+          <th>Raised</th>
+          <th>Goal</th>
+          <th>Start date</th>
+          <th>End date</th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @fundraisers.each do |fundraiser| %>
-      <tr>
-        <td><%= link_to User.find(fundraiser.owner_id).proper_name, user_path(User.find(fundraiser.owner_id)) %></td>
-        <td><%= link_to fundraiser.name, fundraiser_path(fundraiser) %></td>
-        <td><%= number_to_currency(fundraiser.raised) %></td>
-        <td><%= number_to_currency(fundraiser.goal) %></td>
-        <td><%= fundraiser.start_date.strftime("%m/%d/%y") %></td>
-        <% unless fundraiser.end_date.nil? %>
-          <td><%= fundraiser.end_date.strftime("%m/%d/%y") %></td>
-        <% else %>
-          <td>N/A</td>
+      <tbody>
+        <% @fundraisers.each do |fundraiser| %>
+          <tr>
+            <td><%= link_to User.find(fundraiser.owner_id).proper_name, user_path(User.find(fundraiser.owner_id)) %></td>
+            <td><%= link_to fundraiser.name, fundraiser_path(fundraiser) %></td>
+            <td><%= number_to_currency(fundraiser.raised) %></td>
+            <td><%= number_to_currency(fundraiser.goal) %></td>
+            <td><%= fundraiser.start_date.strftime("%m/%d/%y") %></td>
+            <% unless fundraiser.end_date.nil? %>
+              <td><%= fundraiser.end_date.strftime("%m/%d/%y") %></td>
+            <% else %>
+              <td>N/A</td>
+            <% end %>
+          </tr>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </tbody>
+    </table>
 
-<br>
+    <br>
 
-<%= link_to 'New Fundraiser', new_fundraiser_path %>
+    <%= link_to 'New Fundraiser', new_fundraiser_path %>
+  </div>
+</div>
