@@ -23,7 +23,8 @@ Users can log in with a pre-existing account of sign up for an account. Users wi
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`$ bundle install`
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`$ rake db:populate`
-`$ rails server`
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`$ rails server`
 
 ## Contacts
 
