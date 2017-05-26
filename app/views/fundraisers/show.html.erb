@@ -96,6 +96,11 @@
 						</script>
 					</div>
 				</div>
+				<% if @fundraiser.category == "flex" %>
+					<div style="font-size: 12px; color: #219cc8; position: relative; top: 5px;">
+						*This fundraiser has flex funding.
+					</div>
+				<% end %>
 			</div>
 		</div>
 	</div>
@@ -106,9 +111,25 @@
 <%= image_tag(getFundraiserImagePath(@fundraiser.name), id: "fundraiser-image") %>
 
 <div class="full-width">
-	<div class="medium-basic-container">
-		<div class="section light-gray">
-			<!--  -->
+	<div class="small-basic-container">
+		<div class="section light-gray" style="min-height: 100px;">
+			<div class="header" style="color: #219cc8; min-height: 50px;">
+				<div style="float: right;">
+					<div style="font-size: 12px;"><%= @fundraiser.end_date == nil ? 'Start Date' : 'Dates' %></div>
+					<div>
+						<%= @fundraiser.start_date %>
+						<% if @fundraiser.end_date != nil %>
+							- <%= @fundraiser.end_date %>
+						<% end %>
+					</div>
+				</div>
+				<div style="float: left; font-size: 20px;">
+					Description
+				</div>
+			</div>
+			<div class="body">
+				<%= @fundraiser.description %>
+			</div>
 		</div>
 	</div>
 </div>
