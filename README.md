@@ -20,8 +20,9 @@ Users can log in with a pre-existing account of sign up for an account. Users wi
 
 3. Once you have Ruby and Ruby on Rails installed, enter the following in the project directory to run the server locally:
 
-`$ bundle install`
-`$ rake db:populate`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`$ bundle install`
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`$ rake db:populate`
 `$ rails server`
 
 ## Contacts
