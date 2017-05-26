@@ -2,9 +2,9 @@ class HomeController < ApplicationController
 	def home
 		@payments = Payment.chronological.to_a.take(10)
 		@fundraisers = Fundraiser.chronological.to_a.take(10)
-		@jason_fundraiser = Fundraiser.for_user(4).take(1)
-		@sarah_fundraiser = Fundraiser.for_user(5).take(1)
-		@good_payments = Payment.by_id.take(5)
+		@jason_fundraiser = Fundraiser.for_user(4).first
+		@sarah_fundraiser = Fundraiser.for_user(5).first
+		@good_payments = Payment.by_id.take(5).sort { |i, j| j.date <=> i.date }
 	end
 
 	def about
