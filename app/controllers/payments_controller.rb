@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController
   before_action :set_payment, only: [:show, :edit, :update, :destroy, :reduce_add_funds, :create_payback]
-  before_action :check_login
-  
+  before_action :check_login, except: [:show]
+
   def create_payback
     info = {payment_id: @payment.id, date: Date.current}
     payee_id = @payment.payee_id
