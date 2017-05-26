@@ -8,7 +8,7 @@ Rather than jump through the hoops of creating an account to donate to a specifi
 
 ## How it works
 
-Majick.
+Pail uses Ruby on Rails and the prescribed MVC, or Model View Controller, methodology. Through Ruby on Rails, it has built in SQLite3 databases as well as HTML for each page on the web app.
 
 ## What it uses
 
@@ -16,11 +16,11 @@ Pail uses Ruby On Rails as a way to create this app.
 
 ## Installation
 
-1. Clone repo using `git clone https://github.com/C1-SoftwareEngineeringSummit/team1`
+1. Clone repo using `$ git clone https://github.com/C1-SoftwareEngineeringSummit/team1`
 
 2. Make sure you have Ruby installed as well as Ruby on Rails
 
-### Mac Ruby/Ruby on Rails Installation
+### Ruby/Ruby on Rails Installation
 
 Mac: https://www.youtube.com/watch?v=3Lp5XP8pWkU
 
@@ -28,15 +28,15 @@ Windows: https://www.youtube.com/watch?v=OHgXELONyTQ
 
 Note: For Mac, you might have to install Nokogiri by itself if you are on the latest version of Mac OS (Sierra and Mavericks) -- if so, run the following:
 
-`gem install nokogiri -- --use-system-libraries=true --with-xml2-include=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/libxml2/`
+`$ gem install nokogiri -- --use-system-libraries=true --with-xml2-include=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/libxml2/`
 
 [For more info, check out this Stack Overflow post, 'Installing Nokogiri on OSX 10.10 Yosemite'](https://stackoverflow.com/questions/24091869/installing-nokogiri-on-osx-10-10-yosemite)
 
 3. Once you have Ruby and Ruby on Rails installed, type one of the following to run the server locally:
 
-`rails s`
+`$ rails s`
 
-`rake db:population`
+`$ rake db:populate`
 
 ## Contacts
 
