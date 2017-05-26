@@ -45,3 +45,4 @@ class ApplicationController < ActionController::Base
 	helper_method :getFundraiserImagePath
 	
 end
+#a
