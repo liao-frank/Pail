@@ -4,39 +4,25 @@
 
 Pail is an app that streamlines the process of donating to fundraisers, charities, and makes it easy to pay other users, all in one location.
 
-Rather than jump through the hoops of creating an account to donate to a specific user for a fundraiser, Pail allows users to create their own organizations or fundraisers to receive donations, as well as letting users pay other users. There's no need for external applications to bridge the two together.
+Pail allows users to create their own organizations or fundraisers to receive donations and send personal payments to any other user in the system. There's no need for external applications to bridge the two together.
 
 ## How it works
 
-Pail uses Ruby on Rails and the prescribed MVC, or Model View Controller, methodology. Through Ruby on Rails, it has built in SQLite3 databases as well as HTML for each page on the web app.
+Pail uses Ruby on Rails and the prescribed MVC, or Model View Controller, methodology. Some of the CSS framework is built off of <a href="https://purecss.io/">Pure.css</a>.
 
-## What it uses
-
-Pail uses Ruby On Rails as a way to create this app.
+Users can log in with a pre-existing account of sign up for an account. Users will initially start with $5,000 of funds and can create their own organizations and start their own fundraisers. They can also donate and make payments to existing fundraisers, but only if they have the funds to do so. Once a fundraiser has reached its goal, no one can make payments to that fundraiser anymore.
 
 ## Installation
 
 1. Clone repo using `$ git clone https://github.com/C1-SoftwareEngineeringSummit/team1`
 
-2. Make sure you have Ruby installed as well as Ruby on Rails
+2. Make sure you have Ruby installed as well as Ruby on Rails. You can follow <a href="https://www.tutorialspoint.com/ruby-on-rails/rails-installation.htm">this link</a>.
 
-### Ruby/Ruby on Rails Installation
+3. Once you have Ruby and Ruby on Rails installed, enter the following in the project directory to run the server locally:
 
-Mac: https://www.youtube.com/watch?v=3Lp5XP8pWkU
-
-Windows: https://www.youtube.com/watch?v=OHgXELONyTQ
-
-Note: For Mac, you might have to install Nokogiri by itself if you are on the latest version of Mac OS (Sierra and Mavericks) -- if so, run the following:
-
-`$ gem install nokogiri -- --use-system-libraries=true --with-xml2-include=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/libxml2/`
-
-[For more info, check out this Stack Overflow post, 'Installing Nokogiri on OSX 10.10 Yosemite'](https://stackoverflow.com/questions/24091869/installing-nokogiri-on-osx-10-10-yosemite)
-
-3. Once you have Ruby and Ruby on Rails installed, type one of the following to run the server locally:
-
-`$ rails s`
-
+`$ bundle install`
 `$ rake db:populate`
+`$ rails server`
 
 ## Contacts
 
