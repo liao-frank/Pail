@@ -56,11 +56,12 @@
 			<div class="pure-u-12-24">
 				<div class="pure-g">
 					<% ownerName = User.find_by_id(@fundraiser.owner_id).nickname %>
+					<% ownerDisplayName = User.find_by_id(@fundraiser.owner_id).proper_name %>
 					<div class="pure-u-1-5">
 						<%= image_tag getUserImagePath(ownerName), id: "owner-image" %>
 					</div>
 					<div class="pure-u-4-5">
-						<span id="owner-name"><%= ownerName %></span>
+						<span id="owner-name"><%= ownerDisplayName %></span>
 					</div>
 				</div>
 			</div>
