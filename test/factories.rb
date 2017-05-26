@@ -10,4 +10,21 @@ FactoryGirl.define do
     password_confirmation "secret"
   end
 
+  factory :fundraiser do
+    name "Fundraiser 1"
+    category "flex"
+    goal 10000
+    raised 0
+    start_date Date.current
+    end_date nil
+    description "A nice test fundraiser for us all :)"
+  end
+
+  factory :payment do
+    amount 10.00
+    message 'Here you go!'
+    payment_receipt nil
+    date Date.current
+  end
+
 end
