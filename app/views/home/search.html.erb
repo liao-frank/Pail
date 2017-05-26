@@ -1,41 +1,57 @@
-<h2>Search result for term <em>'<%= @query %>'</em> resulted in <%= pluralize(@total_hits, 'hit') %></h2>
-<p class="supertiny">&nbsp;</p>
+<style>
+	.title {
+		font-size: 24px;
+		color: #219cc8;
+	}
+</style>
+<div class="full-width">
+	<div class="medium-basic-container">		
+		<div class="title">
+			<h3>Search for <em>'<%= @query %>'</em> resulted in <%= pluralize(@total_hits, 'hit') %>.</h3>
+		</div>
+		<div class="section light-gray pure-u-6-24">
+			<h4>Users:</h4>
+			<% unless @users.empty? %>
+				<ul>
+					<% for user in @users do %>
+						<li><%= link_to user.name, user_path(user) %></li>
+					<% end %>
+				</ul>
+			<% else %>
+			<ul>
+				No search results
+			</ul>
+			<% end %>
+		</div>
 
-<p><em>Users matching term '<%= @query %>'</em></p>
-<% unless @users.empty? %>
-	<ul>
-		<% for user in @users do %>
-			<li><%= link_to user.name, user_path(user) %></li>
-		<% end %>
-	</ul>
-<% else %>
-<ul>
-  No search results
-</ul>
-<% end %>
+		<div class="section light-gray pure-u-6-24">
+			<h4>Fundraisers:</h4>
+			<% unless @fundraisers.empty? %>
+				<ul>
+					<% for f in @fundraisers do %>
+						<li><%= link_to f.name, fundraiser_path(f) %></li>
+					<% end %>
+				</ul>
+			<% else %>
+			<ul>
+				No search results
+			</ul>
+			<% end %>
+		</div>
 
-<p><em>Fundraisers matching term '<%= @query %>'</em></p>
-<% unless @fundraisers.empty? %>
-	<ul>
-		<% for f in @fundraisers do %>
-			<li><%= link_to f.name, fundraiser_path(f) %></li>
-		<% end %>
-	</ul>
-<% else %>
-<ul>
-  No search results
-</ul>
-<% end %>
-
-<p><em>Organizations matching term '<%= @query %>'</em></p>
-<% unless @organizations.empty? %>
-	<ul>
-		<% for o in @organizations do %>
-			<li><%= link_to o.name, organization_path(o) %></li>
-		<% end %>
-	</ul>
-<% else %>
-<ul>
-  No search results
-</ul>
-<% end %>
+		<div class="section light-gray pure-u-6-24">
+			<h4>Organizations:</h4>
+			<% unless @organizations.empty? %>
+				<ul>
+					<% for o in @organizations do %>
+						<li><%= link_to o.name, organization_path(o) %></li>
+					<% end %>
+				</ul>
+			<% else %>
+			<ul>
+				No search results
+			</ul>
+			<% end %>
+		</div>
+	</div>
+</div>
