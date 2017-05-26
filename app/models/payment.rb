@@ -24,15 +24,15 @@ class Payment < ActiveRecord::Base
   validates :payer_id, numericality: { only_integer: true }
   validates :payee_id, numericality: { only_integer: true }
   validates_numericality_of :amount, greater_than: 0
+  validate :check_negative_balance
 
   before_create :add_raised_for_event
 
   # Methods
   def pay
     return false unless self.payment_receipt.nil?
-    generate_payment_receipt
+    self.payment_receipt = Base64.encode64("payment: #{self.id}; amount_paid: #{self.amount}; payee: #{self.payee_id}; payer: #{self.payer_id}")
     self.save!
-    self.payment_receipt
   end
 
   def paid
@@ -54,6 +54,17 @@ class Payment < ActiveRecord::Base
       unless fundraiser.raised >= fundraiser.goal
         fundraiser.update_attribute(:raised, fundraiser.raised + self.amount)
       end
+    end
+  end
+
+  private
+
+  def check_negative_balance
+    payer_funds = User.find(self.payer_id).funds
+    if payer_funds - self.amount < 0
+      errors.add(:payer_id, "does not have enough funds.")
+    else
+      return true
     end
   end
 

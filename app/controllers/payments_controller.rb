@@ -58,9 +58,20 @@ class PaymentsController < ApplicationController
         format.html { 
           reduce_add_funds(@payment.payer_id, @payment.payee_id)
           if @payment.fundraiser_id.nil?
+            @payment.pay
             redirect_to @payment, notice: 'Payment was successfully created.' 
           else
             event = Fundraiser.find(@payment.fundraiser_id)
+            if event.category == "flex"
+              @payment.pay
+            elsif event.category == "threshold"
+              if event.raised >= event.goal
+                payments = Payment.for_fundraiser(event.id)
+                for p in payments
+                  p.pay
+                end
+              end
+            end
             redirect_to fundraiser_path(event), notice: 'Payment was successfully created.' 
           end 
         }
