@@ -67,7 +67,7 @@
 			<div class="pure-u-12-24">
 				<div id="fund-tracker">
 					<div id="fund-tracker-bar">
-						<%= @fundraiser.raised %>&nbsp;&nbsp;<span class="sep">/</span>&nbsp;&nbsp;<%= @fundraiser.goal %>
+						<%= number_to_currency(@fundraiser.raised) %>&nbsp;&nbsp;/&nbsp;&nbsp;<%= number_to_currency(@fundraiser.goal) %>
 						<div id="fund-tracker-background"></div>
 						<div id="fund-tracker-foreground"></div>
 						<script>
