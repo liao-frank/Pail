@@ -21,7 +21,7 @@
 	}
 </style>
 <div class="full-width">
-	<div class="medium-basic-container">
+	<div class="small-basic-container">
 		<div class="pure-g photos">
 			<div class="pure-u-10-24" style="text-align: center !important;">
 				<%= image_tag getUserImagePath(@user.nickname), class: 'user-photo', id: "payer-photo" %>
@@ -31,8 +31,27 @@
 				<div class="user-name">
 					<%= @user.proper_name + " (" + @user.nickname + ")"%> 
 				</div><br>
-        <%= mail_to(@user.email, @user.email, encode: "javascript") %><br>
-        <%= "Funds: " + number_to_currency(@user.funds) %> 
+				<style>
+					#email {
+						position: relative;
+						bottom: 15px;
+					}
+					#funds {
+						position: relative;
+
+						font-size: 36px;
+					}
+					#funds #funds-label {
+						font-size: 20px;
+						margin-bottom: 8px;
+					}
+				</style>
+		        <span id="email"><%= mail_to(@user.email, @user.email, encode: "javascript") %></span><br>
+
+		        <div id="funds">
+		        	<span id="funds-label">Funds</span><br/>
+		        	<%= number_to_currency(@user.funds) %>
+		        </div>
 			</div>
 			<script>
 				$(document).ready(function() {
@@ -45,7 +64,7 @@
 <div class="full-width" style="margin-top: 30px;">
   <div class="small-basic-container">
     <div class="section light-gray">
-      <h3 style="margin: 0; margin-bottom: 20px;">Fundraisers:</h3>
+      <h3 style="margin: 0; margin-bottom: 20px;">Fundraisers</h3>
         <% unless @fundraisers.empty? %>
           <table class="pure-table pure-table-horizontal">
             <thead>
