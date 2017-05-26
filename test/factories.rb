@@ -27,4 +27,20 @@ FactoryGirl.define do
     date Date.current
   end
 
+  factory :organization do
+    name: "Capital One Summiteers"
+    description: "The nerdiest group of software engineers you'll ever meet!"
+  end
+
+  factory :organization_user do
+    role: "member"
+    title: nil
+  end
+
+  factory :message do
+    message_text: "Hey guys! I really like our organization!"
+    likes: 0
+    date_time: Time.now
+  end
+
 end

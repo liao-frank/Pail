@@ -41,7 +41,7 @@ namespace :db do
       count += 1
     end
 
-    # Step 2: Create Payments
+    # Step 3: Create Payments
     # payments for home screen
     FactoryGirl.create(:payment, payer_id: 1, payee_id: 2, fundraiser_id: nil, amount: 100.00)
     FactoryGirl.create(:payment, payer_id: 4, payee_id: 3, fundraiser_id: nil, amount: 50.00)
@@ -55,6 +55,27 @@ namespace :db do
       amount = Faker::Number.decimal(2)
       FactoryGirl.create(:payment, payer_id: u.id, payee_id: payee, fundraiser_id: f_id, amount: amount)
     end
+
+    # Step 4: Create Organizations
+    @summiteers = FactoryGirl.create(:organization)
+    @tartans = FactoryGirl.create(:organization, name: "CMU Tartans", description: "A bunch of students at CMU.")
+
+    # Step 5: Create OrganizationUsers
+    @summit_leader = FactoryGirl.create(:organization_user, org_id: @summiteers.id, user_id: @sarah.id, role: "owner")
+    @summiteer1 = FactoryGirl.create(:organization_user, org_id: @summiteers.id, user_id: @ben.id)
+    @summiteer2 = FactoryGirl.create(:organization_user, org_id: @summiteers.id, user_id: @frank.id)
+    @summiteer3 = FactoryGirl.create(:organization_user, org_id: @summiteers.id, user_id: @winston.id)
+    @cmu_leader = FactoryGirl.create(:organization_user, org_id: @tartans.id, user_id: @winston.id, role: "owner")
+    @tartan1 = FactoryGirl.create(:organization_user, org_id: @tartans.id, user_id: @ben.id)
+    @tartan2 = FactoryGirl.create(:organization_user, org_id: @tartans.id, user_id: @frank.id)
+    @tartan3 = FactoryGirl.create(:organization_user, org_id: @tartans.id, user_id: @jason.id)
+    @tartan4 = FactoryGirl.create(:organization_user, org_id: @tartans.id, user_id: @firoze.id)
+
+    # Step 6: Create Messages
+    # cmu org will have no messages to start
+    FactoryGirl.create(:message, org_id: @summiteers.id, sender_id: @sarah.id, message_text: "Welcome to the organization!", date_time: Time.beginning_of_day())
+    FactoryGirl.create(:message, org_id: @summiteers.id, sender_id: @winston.id, date_time: Time.beginning_of_hour())
+    FactoryGirl.create(:message, org_id: @summiteers.id, sender_id: @frank.id, date_time: Time.beginning_of_minute())
 
   end
 end

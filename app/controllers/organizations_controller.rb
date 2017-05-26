@@ -11,6 +11,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1.json
   def show
     @members = OrganizationUser.for_organization(@organization.id)
+    @messages = @organization.messages.chronological.all
   end
 
   # GET /organizations/new
