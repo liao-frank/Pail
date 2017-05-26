@@ -23,8 +23,8 @@
         <td><%= fundraiser.owner_id %></td>
         <td><%= fundraiser.name %></td>
         <td><%= fundraiser.category %></td>
-        <td><%= fundraiser.goal %></td>
-        <td><%= fundraiser.raised %></td>
+        <td><%= number_to_currency(fundraiser.goal) %></td>
+        <td><%= number_to_currency(fundraiser.raised) %></td>
         <td><%= fundraiser.start_date %></td>
         <td><%= fundraiser.end_date %></td>
         <td><%= fundraiser.description %></td>

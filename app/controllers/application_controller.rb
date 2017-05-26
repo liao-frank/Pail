@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
 		redirect_to login_url, alert: "You need to log in to view this page." if current_user.nil?
 	end
 	
-	private
 	# Constants
 	FUNDRAISER_NAME_DIR = "fundraisers" # Path constant
 	USERIMAGE_DIR = "user-images" # Path constant
