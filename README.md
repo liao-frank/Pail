@@ -22,7 +22,7 @@ Pail uses Ruby On Rails as a way to create this app.
 
 ### Mac Ruby/Ruby on Rails Installation
 
-Mac: https://www.youtube.com/watch?v=3Lp5XP8pWkU&t=199s
+Mac: https://www.youtube.com/watch?v=3Lp5XP8pWkU
 
 Windows: https://www.youtube.com/watch?v=OHgXELONyTQ
 
