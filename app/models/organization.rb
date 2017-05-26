@@ -2,11 +2,10 @@ class Organization < ActiveRecord::Base
 
 	# Relationships
 	has_many :organization_users
-	has_one :orgnaization
+	has_many :users, through: :organization_users
 
 	# Validations
 	validate :organization_not_a_duplicate, on: :create
-
 
 	def already_exists? # Function to check if the organization exists in the database
 		Organization.where(name: self.name) == 1 # Access the database for any organizations with the name, if there exists one already, returns true
@@ -26,4 +25,5 @@ class Organization < ActiveRecord::Base
 			nicknames += member.user.nickname # Add the member's nickname from the User model to the nicknames container
 		end
 	end
+
 end
