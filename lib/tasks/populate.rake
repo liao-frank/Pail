@@ -73,9 +73,9 @@ namespace :db do
 
     # Step 6: Create Messages
     # cmu org will have no messages to start
-    FactoryGirl.create(:message, org_id: @summiteers.id, sender_id: @sarah.id, message_text: "Welcome to the organization!", date_time: Time.beginning_of_day())
-    FactoryGirl.create(:message, org_id: @summiteers.id, sender_id: @winston.id, date_time: Time.beginning_of_hour())
-    FactoryGirl.create(:message, org_id: @summiteers.id, sender_id: @frank.id, date_time: Time.beginning_of_minute())
+    FactoryGirl.create(:message, organization_id: @summiteers.id, sender_id: @sarah.id, message_text: "Welcome to the organization!", date_time: Time.now.beginning_of_day())
+    FactoryGirl.create(:message, organization_id: @summiteers.id, sender_id: @winston.id, date_time: Time.now.beginning_of_hour())
+    FactoryGirl.create(:message, organization_id: @summiteers.id, sender_id: @frank.id, date_time: Time.now.beginning_of_minute())
 
   end
 end
