@@ -1,43 +1,98 @@
+<style>
+	#fund-tracker {
+		font-family: Arial;
+		font-weight: bold;
+		height: 50px;
+		font-size: 35px;
+		color: #4fd7b1;
+	}
+	#fund-tracker .sep {
+		color: #01b9f5;
+		font-size: 15px;
+	}
+	#fund-tracker-bar {
+		position: relative;
+
+		width: 400px;
+		height: 10px;
+	}
+	#fund-tracker-background,
+	#fund-tracker-foreground {
+		position: absolute;
+		border-radius: 4px;
+		height: 100%;
+	}
+	#fund-tracker-background {
+		z-index: 0;
+
+		width: 100%;
+		background-color: #bebebe;
+	}
+	#fund-tracker-foreground {
+		z-index: 1;
+
+		transition: width 2s;
+		width: 10%;
+		background-color: #4fd7b1;
+	}
+</style>
 <p id="notice"><%= notice %></p>
 
+
+
+<div id="fund-tracker">
+	<div id="fund-tracker-bar">
+		<%= @fundraiser.raised %>&nbsp;&nbsp;<span class="sep">/</span>&nbsp;&nbsp;<%= @fundraiser.goal %>
+		<div id="fund-tracker-background"></div>
+		<div id="fund-tracker-foreground"></div>
+		<script>
+			$(document).ready(function() {
+				var percentage = '<%= (@fundraiser.raised / @fundraiser.goal).round(2) * 100 %>%';
+				$('#fund-tracker-foreground').css('width', percentage);
+			});
+		</script>
+	</div>
+</div>
+
+<%= image_tag getFundraiserImagePath(@fundraiser.name) %>
 <p>
-  <strong>Owner:</strong>
-  <%= @fundraiser.owner_id %>
+	<strong>Owner:</strong>
+	<%= @fundraiser.owner_id %>
 </p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @fundraiser.name %>
+	<strong>Name:</strong>
+	<%= @fundraiser.name %>
 </p>
 
 <p>
-  <strong>Category:</strong>
-  <%= @fundraiser.category %>
+	<strong>Category:</strong>
+	<%= @fundraiser.category %>
 </p>
 
 <p>
-  <strong>Goal:</strong>
-  <%= @fundraiser.goal %>
+	<strong>Goal:</strong>
+	<%= @fundraiser.goal %>
 </p>
 
 <p>
-  <strong>Raised:</strong>
-  <%= @fundraiser.raised %>
+	<strong>Raised:</strong>
+	<%= @fundraiser.raised %>
 </p>
 
 <p>
-  <strong>Start date:</strong>
-  <%= @fundraiser.start_date %>
+	<strong>Start date:</strong>
+	<%= @fundraiser.start_date %>
 </p>
 
 <p>
-  <strong>End date:</strong>
-  <%= @fundraiser.end_date %>
+	<strong>End date:</strong>
+	<%= @fundraiser.end_date %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @fundraiser.description %>
+	<strong>Description:</strong>
+	<%= @fundraiser.description %>
 </p>
 
 <%= link_to 'Edit', edit_fundraiser_path(@fundraiser) %> |

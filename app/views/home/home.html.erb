@@ -8,12 +8,24 @@
 	}
 
 	.user-image {
-		width:48px;
+		width: 48px;
 	}
 
 	#parent {
 		display: flex;
 	}
+
+	.w3-sidebar a {
+		margin: 20px 0;
+		padding-left: 30px;
+
+		width: 100%;
+		text-decoration: none !important;
+	}
+	.w3-sidebar a:hover {
+		/*background-color: white;*/
+	}
+
 
 </style>
 <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
@@ -22,31 +34,35 @@
 	<% end %>
 	<% if logged_in? %>
 	<h3 class="w3-bar-item">Options</h3>
-	<%= link_to "- Pay User", new_payment_path %><br>
-	<%= link_to "- View Payments", payments_path %><br>
-	<%= link_to "- View Fundraisers", fundraisers_path %><br>
-	<%= link_to "- View Your Organization", organizations_path %><br>
+	<%= link_to "Pay User", new_payment_path %><br>
+	<%= link_to "View Payments", payments_path %><br>
+	<%= link_to "View Fundraisers", fundraisers_path %><br>
+	<%= link_to "View Your Organization", organizations_path %><br>
 	<% end %>
 </div>
 
-<div id="flex">
-	<div class="small-basic-container">
-		<% for p in @payments %>
-		<div class="pure-g">
-			<div class="pure-u-2-24">
-				<%= image_tag getUserImagePath(p.payer.nickname), class: 'user-image' %>
+<div class="pure-g">
+	<div class="pure-u-12-24">
+		<div class="small-basic-container">
+			<% for p in @payments %>
+			<div class="pure-g">
+				<div class="pure-u-2-24">
+					<%= image_tag getUserImagePath(p.payer.nickname), class: 'user-image' %>
+				</div>
 			</div>
+			<% end %>
 		</div>
-		<% end %>
 	</div>
 
-	<div class="small-basic-container">
-		<% for f in @fundraisers %>
-		<div class="pure-g">
-			<div class="pure-u-1-24">
-				<%= image_tag getFundraiserImagePath(f.name), class: 'user-image' %>
+	<div class="pure-u-12-24">
+		<div class="small-basic-container">
+			<% for f in @fundraisers %>
+			<div class="pure-g">
+				<div class="pure-u-1-24">
+					<%= image_tag getFundraiserImagePath(f.name), class: 'user-image' %>
+				</div>
 			</div>
+			<% end %>
 		</div>
-		<% end %>
 	</div>
 </div>
