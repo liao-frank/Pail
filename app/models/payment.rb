@@ -25,6 +25,7 @@ class Payment < ActiveRecord::Base
   validates :payee_id, numericality: { only_integer: true }
   validates_numericality_of :amount, greater_than: 0
 
+  before_save :check_fundraiser_full
   before_create :add_raised_for_event
 
   # Methods
@@ -46,6 +47,10 @@ class Payment < ActiveRecord::Base
   def is_paid_back
     #returns true if paid back, false if not
     !Payback.for_payment(self.id).empty?
+  end
+
+  def check_fundraiser_full
+    self.fundraiser_id.nil?
   end
 
   def add_raised_for_event
