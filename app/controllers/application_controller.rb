@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
 	# Constants
 	FUNDRAISER_NAME_DIR = "fundraisers" # Path constant
 	USERIMAGE_DIR = "user-images" # Path constant
+	ORGANIZATION_DIR = "organizations"
 
 	def getUserImagePath(username) # Obtain file path for a user's profile image
 		if Rails.application.assets.find_asset USERIMAGE_DIR + "/#{username}.jpg"
@@ -43,6 +44,16 @@ class ApplicationController < ActionController::Base
 		end
 	end
 	helper_method :getFundraiserImagePath
+
+	def getOrganizationImagePath(org_name) # Obtain file path for a fundraiser's profile image
+		if Rails.application.assets.find_asset ORGANIZATION_DIR + "/#{org_name}.jpg"
+			return ORGANIZATION_DIR + "/#{org_name}.jpg"
+		elsif Rails.application.assets.find_asset ORGANIZATION_DIR + "/#{org_name}.png"
+			return ORGANIZATION_DIR + "/#{org_name}.png"
+		else
+			return ORGANIZATION_DIR + "/no-image.jpg"
+		end
+	end
+	helper_method :getOrganizationImagePath
 	
 end
-#a
