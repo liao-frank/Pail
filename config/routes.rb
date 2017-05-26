@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 	get 'sandbox' => 'home#sandbox', as: :sandbox
 
 	get 'create_payback/:id' => 'payments#create_payback', as: :create_payback
+	get 'organization_users/new/:id' => 'payments#create_payback'
 
 	# Set the root url
 	root :to => 'home#home'  

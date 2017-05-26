@@ -10,5 +10,32 @@
   <%= @organization.description %>
 </p>
 
+<p>
+  <strong>Listing Members:</strong>
+  <% unless @members.empty? %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Nickname</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @members.each do |member| %>
+          <tr>
+            <td><%= member.user.name %></td>
+            <td><%= member.user.nickname %></td>
+            <td><%= member.role %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    There are no current members in this organization at the time.
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_organization_path(@organization) %> |
 <%= link_to 'Back', organizations_path %>

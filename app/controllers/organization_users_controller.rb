@@ -15,6 +15,7 @@ class OrganizationUsersController < ApplicationController
   # GET /organization_users/new
   def new
     @organization_user = OrganizationUser.new
+    @org_id = params[:org_id]
   end
 
   # GET /organization_users/1/edit

@@ -1,7 +1,9 @@
 class OrganizationUser < ActiveRecord::Base
 
 	# Relationships
-	has_one :organization
-	has_one :user
+	belongs_to :organization
+	belongs_to :user
+
+	scope :for_organization, ->(org_id){ where(org_id: org_id) }
 
 end

@@ -2,7 +2,6 @@ class Organization < ActiveRecord::Base
 
 	# Relationships
 	has_many :organization_users
-	has_many :users, through: :organization_users
 
 	# Validations
 	validate :organization_not_a_duplicate, on: :create
