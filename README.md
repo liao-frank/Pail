@@ -1,4 +1,4 @@
-# Pail
+# Pail: Put it in your pail
 
 ## What is it?
 
