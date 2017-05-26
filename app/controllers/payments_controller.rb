@@ -1,5 +1,6 @@
 class PaymentsController < ApplicationController
   before_action :set_payment, only: [:show, :edit, :update, :destroy, :reduce_add_funds, :create_payback]
+  before_action :check_login
   
   def create_payback
     info = {payment_id: @payment.id, date: Date.current}
