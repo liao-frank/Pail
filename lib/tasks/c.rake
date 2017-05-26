@@ -38,6 +38,7 @@ namespace :db do
       raised = Faker::Number.between(0,100)
       owner = Faker::Number.between(2,4)
       FactoryGirl.create(:fundraiser, owner_id: owner, name: "Fundraiser #{count}", category: cat, goal: goal, raised: raised)
+      count += 1
     end
 
     # Step 2: Create Payments
