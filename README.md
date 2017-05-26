@@ -10,7 +10,7 @@ Pail allows users to create their own organizations or fundraisers to receive do
 
 Pail uses Ruby on Rails and the prescribed MVC, or Model View Controller, methodology. Some of the CSS framework is built off of <a href="https://purecss.io/">Pure.css</a>.
 
-Users can log in with a pre-existing account of sign up for an account. Users will initially start with $5,000 of funds and can create their own organizations and start their own fundraisers. They can also donate and make payments to existing fundraisers, but only if they have the funds to do so. Once a fundraiser has reached its goal, no one can make payments to that fundraiser anymore.
+Users can log in with a pre-existing account of sign up for an account. Users will initially start with $5,000 of funds. Once signed up or logged in, users can create their own organizations and start their own fundraisers. They can also donate and make payments to existing fundraisers, but only if they have the funds to do so. Once a fundraiser has reached its goal, no one can make payments to that fundraiser anymore.
 
 ## Installation
 
