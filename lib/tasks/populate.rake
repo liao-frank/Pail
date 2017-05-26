@@ -50,7 +50,7 @@ namespace :db do
     FactoryGirl.create(:payment, payer_id: 4, payee_id: 5, fundraiser_id: nil, amount: 151.12)
     # other payments
     for u in User.all 
-      payee = (1..47).to_a.sample
+      payee = ((1..47).to_a - [u.id]).sample
       f_id = Faker::Number.between(1,10)
       amount = Faker::Number.decimal(2)
       FactoryGirl.create(:payment, payer_id: u.id, payee_id: payee, fundraiser_id: f_id, amount: amount)

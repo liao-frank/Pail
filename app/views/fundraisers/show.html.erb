@@ -148,8 +148,15 @@
 </div>
 
 <div class="full-width" style="text-align: center !important;">
-	<%= link_to new_payment_path(:source => "fundraiser", :fund_id => @fundraiser.id) do %>
-		<%= image_tag 'icons/payment-blue.png', class: "user-action" %>
+	<% if @fundraiser.raised < @fundraiser.goal %>
+		<%= link_to new_payment_path(:source => "fundraiser", :fund_id => @fundraiser.id) do %>
+			<%= image_tag 'icons/payment-blue.png', class: "user-action" %>
+		<% end %>
+	<% else %>
+		<div style="text-align: center !important; font-size: 24px; color: #219cc8; margin-bottom: 15px;">
+			<br>
+			This fundraiser has reached its goal. Thanks to all who contributed!
+		</div>
 	<% end %>
 	<br/>
 	<button id="see-payments-button" class="pure-button">
