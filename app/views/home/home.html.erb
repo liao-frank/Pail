@@ -9,13 +9,13 @@
 
 </style>
 <!-- Sidebar -->
-<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%">
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
 	<h3 class="w3-bar-item">Options</h3>
 	<% if logged_in? %>
-	<%= link_to "Pay User", new_payment_path %><br>
-	<%= link_to "View Payments", payments_path %><br>
-	<%= link_to "View Fundraisers", fundraisers_path %><br>
-	<%= link_to "View Your Organization", organizations_path %><br>
+	<%= link_to "- Pay User", new_payment_path %><br>
+	<%= link_to "- View Payments", payments_path %><br>
+	<%= link_to "- View Fundraisers", fundraisers_path %><br>
+	<%= link_to "- View Your Organization", organizations_path %><br>
 	<% end %>
 </div>
 
