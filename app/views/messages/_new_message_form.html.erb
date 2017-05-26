@@ -1,3 +1,11 @@
-<%= simple_form_for(@message) do |f| %>
-  <%= f.text_area :message_text, label: "Message", input_html: {class: "avg"} %>
+<%= simple_form_for @message, remote: true do |f| %>
+  <div class="pure-form">
+    <%= @organization.id %>
+    
+    <%= f.input :sender_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+    <%= f.input :likes, :as => :hidden, :input_html => { :value => 0 } %>
+    <%= f.input :date_time, :as => :hidden, :input_html => { :value => Time.now } %>
+    <%= f.text_area :message_text, label: "Message", input_html: {class: "avg"} %>
+    <%= f.submit "Send Message" %>
+  </div>
 <% end %>
