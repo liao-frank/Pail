@@ -19,6 +19,10 @@
 	.user-photo:hover {
 		filter: brightness(0.8);
 	}
+	#payee-photo {
+
+		display: none;
+	}
 	#arrow {
 		width: 200px;
 		height: 50px;
@@ -32,7 +36,7 @@
 		<div class="pure-g photos">
 			<div class="pure-u-10-24" style="text-align: center !important;">
 				<%= link_to user_path do %>
-					<%= image_tag getUserImagePath(@payer.nickname), class: 'user-photo' %>
+					<%= image_tag getUserImagePath(@payer.nickname), class: 'user-photo', id: "payer-photo" %>
 					<br/>
 					<span style="width: 10px;"></span><%= @payer.proper_name %>
 				<% end %>
@@ -45,10 +49,30 @@
 			</div>
 			<div class="pure-u-10-24" style="text-align: center !important;">
 				<%= link_to user_path do %>
-					<%= image_tag getUserImagePath(@payee.nickname), class: 'user-photo' %>
+					<div style="height: 190px;">
+						<%= image_tag getUserImagePath(@payee.nickname), class: 'user-photo', id: "payee-photo" %>
+					</div>
 					<br/>
 					<span style="width: 10px;"></span><%= @payee.proper_name %>
 				<% end %>
+			</div>
+			<script>
+				$(document).ready(function() {
+					$('#payer-photo').animateCss("bounceIn");
+
+					setTimeout(function() {
+						$('#payee-photo').show();
+						$('#payee-photo').animateCss("bounceIn");
+					}, 1000);
+				});
+			</script>
+		</div>
+	</div>
+
+	<div class="full-width" style="margin-top: 30px;">
+		<div class="small-basic-container">
+			<div class="section light-gray">
+			<!-- Info goes here -->
 			</div>
 		</div>
 	</div>
