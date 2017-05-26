@@ -29,10 +29,13 @@ Users can log in with a pre-existing account of sign up for an account. Users wi
 ## Contacts
 
 - Winston Chu:
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:wpchu@andrew.cmu.edu">wpchu@andrew.cmu.edu</a>
 
 - Frank Liao:
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:fliao@andrew.cmu.edu">fliao@andrew.cmu.edu</a>
 
 - Ben Catarevas:
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:benjamin.catarevas@uconn.edu">benjamin.catarevas@uconn.edu</a>
