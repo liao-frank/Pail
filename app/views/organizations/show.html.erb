@@ -82,13 +82,25 @@
 					</div>
 				</div>
 			</div>
-
+			<style>
+				#messages {
+					height: 314px;
+				}
+				#input {
+					width: 100%;
+				}
+			</style>
 			<div class="pure-u-1-2">
-				<div style="width: 90%">
+				<div style="width: 90%" class="pure-form">
 					<div class="label">
 						Messages
 					</div>
 					<div class="section light-gray">
+						<div id="messages">
+						</div>
+						<div id="message-input">
+							<textarea id="input"></textarea>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -96,7 +108,7 @@
 	</div>
 </div>
 
-<p>
+<!-- <p>
 	<strong>Name:</strong>
 	<%= @organization.name %>
 </p>
@@ -131,7 +143,7 @@
 	<% else %>
 		There are no current members in this organization at the time.
 	<% end %>
-</p>
+</p> -->
 
 <div id="message_thread">
   <p>
