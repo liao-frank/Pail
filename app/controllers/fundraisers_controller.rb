@@ -10,6 +10,7 @@ class FundraisersController < ApplicationController
   # GET /fundraisers/1
   # GET /fundraisers/1.json
   def show
+    @payments = Payment.for_fundraiser(@fundraiser.id).chronological.all
   end
 
   # GET /fundraisers/new

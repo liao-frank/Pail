@@ -1,4 +1,7 @@
 <style>
+	#content a {
+		text-decoration: none !important;
+	}
 	#owner-image {
 		height: 64px;
 
@@ -60,6 +63,7 @@
 		height: 84px;
 		margin: 0 auto;
 		margin-top: 20px;
+		margin-bottom: 20px;
 	}
 	.user-action:hover {
 		filter: brightness(0.8);
@@ -106,10 +110,8 @@
 	</div>
 </div>
 
-
-
 <%= image_tag(getFundraiserImagePath(@fundraiser.name), id: "fundraiser-image") %>
-
+<div id="basic-fundraiser">
 <div class="full-width">
 	<div class="small-basic-container">
 		<div class="section light-gray" style="min-height: 100px;">
@@ -117,9 +119,9 @@
 				<div style="float: right;">
 					<div style="font-size: 12px;"><%= @fundraiser.end_date == nil ? 'Start Date' : 'Dates' %></div>
 					<div>
-						<%= @fundraiser.start_date %>
+						<%= @fundraiser.start_date.strftime("%-m-%-d-%y") %>
 						<% if @fundraiser.end_date != nil %>
-							- <%= @fundraiser.end_date %>
+							- <%= @fundraiser.end_date.strftime("%-m-%-d-%y") %>
 						<% end %>
 					</div>
 				</div>
@@ -135,50 +137,101 @@
 </div>
 
 <div class="full-width" style="text-align: center !important;">
-	<%= link_to nil do %>
+	<%= link_to new_payment_path(:source => "fundraiser", :fund_id => @fundraiser.id) do %>
 		<%= image_tag 'icons/payment-blue.png', class: "user-action" %>
 	<% end %>
+	<br/>
+	<button id="see-payments-button" class="pure-button">
+		See Payments
+	</button>
+	<script>
+		$("#see-payments-button").click(function() {
+			var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+			$('#basic-fundraiser').addClass('animated ' + 'fadeOut').one(animationEnd, function() {
+			    $('#basic-fundraiser').removeClass('animated ' + 'fadeOut');
+			    $('#basic-fundraiser').hide();
+			    $('#messages').show();
+			    $('#messages').animateCss('slideInUp');
+			});					
+		});
+	</script>
 </div>
 
-<p>
-	<strong>Owner:</strong>
-	<%= @fundraiser.owner_id %>
-</p>
 
-<p>
-	<strong>Name:</strong>
-	<%= @fundraiser.name %>
-</p>
+</div>
 
-<p>
-	<strong>Category:</strong>
-	<%= @fundraiser.category %>
-</p>
-
-<p>
-	<strong>Goal:</strong>
-	<%= @fundraiser.goal %>
-</p>
-
-<p>
-	<strong>Raised:</strong>
-	<%= @fundraiser.raised %>
-</p>
-
-<p>
-	<strong>Start date:</strong>
-	<%= @fundraiser.start_date %>
-</p>
-
-<p>
-	<strong>End date:</strong>
-	<%= @fundraiser.end_date %>
-</p>
-
-<p>
-	<strong>Description:</strong>
-	<%= @fundraiser.description %>
-</p>
-
-<%= link_to 'Edit', edit_fundraiser_path(@fundraiser) %> |
-<%= link_to "Contribute to this fundraiser", new_payment_path(:source => "fundraiser", :fund_id => @fundraiser.id) %>
+<div class="full-width">
+	<div class="medium-basic-container" style="text-align: center !important;">
+		<style>
+			.wrapper {
+				margin: 0 auto;
+				font-family: "Segoe UI";
+			}
+			#header {
+				min-height: 35px;
+			}
+			#desc-header, #date {
+				font-size: 24px;
+				color: #219cc8;
+			}
+			#desc-header, #name-header {
+				float: right;
+			}
+			#date, #amount {
+				float: left;
+			}
+			#desc-body {
+				color: #2d2d2d;
+			}
+			#start-date {
+				font-size: 10px;
+				font-family: "Segoe UI";
+				color: #219cc8;
+			}
+			#amount, #name-header {
+				font-size: 16px;
+				color: #219cc8;
+			}
+			#messages {
+				display: none;
+			}
+		</style>
+		<div id="messages">
+			<button id="hide-payments-button" class="pure-button" style="margin-bottom: 20px;">
+				Hide Payments
+			</button>
+			<script>
+				$("#hide-payments-button").click(function() {
+					var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+					$('#messages').addClass('animated ' + 'slideOutDown').one(animationEnd, function() {
+					    $('#messages').removeClass('animated ' + 'slideOutDown');
+					    $('#messages').hide();
+					    $('#basic-fundraiser').show();
+					    $('#basic-fundraiser').animateCss('fadeIn');
+					});					
+				});
+			</script>
+			<% unless @payments.empty? %>
+				<% for p in @payments %>
+					<div class="section light-gray small-basic-container">
+						<div class="wrapper">
+							<div id="header">
+								<div id="amount">
+									<%= p.payer.proper_name %>
+								</div>
+								<div id="name-header">
+									<%= number_to_currency(p.amount) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= p.date.strftime("%-m-%-d-%y") %>
+								</div>
+							</div>
+							<div id="desc-body" style="text-align: left !important;">
+								<%= p.message %>
+							</div>
+						</div>
+					</div>
+					<br>
+				<% end %>
+			<% else %>
+			<% end %>
+		</div>
+	</div>
+</div>
