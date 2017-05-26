@@ -17,7 +17,11 @@
         <td><%= organization.name %></td>
         <td><%= organization.description %></td>
         <td><%= link_to 'Show', organization %></td>
-        <td><%= link_to 'Join Organization', new_organization_user_path(:org_id => organization.id) %></td>
+        <% if OrganizationUser.for_organization(organization.id).map{|ou| ou.user.id}.include?(current_user.id) %>
+          <td>Already joined!</td>
+        <% else %>
+          <td><%= link_to 'Join Organization', new_organization_user_path(:org_id => organization.id) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
