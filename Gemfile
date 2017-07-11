@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
-
+# Heroku deteailed logs
+gem 'rails_12factor'
+# postgres
+gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7'
 # Use sqlite3 as the database for Active Record
@@ -36,10 +39,28 @@ gem 'validates_timeliness'
 gem "populator"
 gem 'simple_form'
 
+# test gems
+gem 'shoulda'
+gem 'shoulda-matchers'
+gem 'minitest'
+gem 'minitest-rails'
+gem 'minitest-reporters'
+gem 'factory_girl_rails'
+gem 'mocha'
+gem 'cucumber-rails', require: false
+gem 'capybara'
+gem 'database_cleaner'
+gem 'launchy'
+gem 'email_spec'
+gem 'nokogiri'
+gem 'simplecov'
+gem 'single_test'
+
+gem 'faker'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '9.0.6'
-  gem 'faker'
 end
 
 group :development do
@@ -58,22 +79,3 @@ group :development do
   gem 'meta_request'
   gem 'letter_opener'
 end
-
-group :test do
-  gem 'shoulda'
-  gem 'shoulda-matchers'
-  gem 'minitest'
-  gem 'minitest-rails'
-  gem 'minitest-reporters'
-  gem 'factory_girl_rails'
-  gem 'mocha'
-  gem 'cucumber-rails', require: false
-  gem 'capybara'
-  gem 'database_cleaner'
-  gem 'launchy'
-  gem 'email_spec'
-  gem 'nokogiri'
-  gem 'simplecov'
-  gem 'single_test'
-end
-
