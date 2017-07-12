@@ -129,6 +129,14 @@ body {
 	text-shadow: 2px 2px #4fd7b1;
 }
 
+.section {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 10px;
+}
+
 /* Colors */
 .blue {
 	background-color: #219cc8;
