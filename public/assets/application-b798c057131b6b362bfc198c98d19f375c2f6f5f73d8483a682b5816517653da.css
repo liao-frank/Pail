@@ -1,0 +1,232 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+/* Structure */
+
+* {
+	transition: 0.2s;
+}
+html {
+	height: 100%;
+}
+
+body {
+	font-family: 'Segoe UI';
+
+	margin: 0;
+	min-width: 100%;
+	min-height: 100%;
+}
+
+#header {
+	font-family: 'Segoe UI';
+	color: #fff;
+
+	position: relative;
+}
+
+#header a, #header a:hover {
+	text-decoration: none;
+	color: inherit;
+}
+
+#header a:hover {
+	filter: brightness(0.8);
+}
+
+#header #search-form input {
+	color: black;
+	width: 350px;
+	height: 35px;
+}
+
+#header .account {
+	position: relative;
+	top: 10px;
+	right: 20px;
+	float: right;
+}
+
+#header .logo {
+	width: 100px;
+	font-family: 'Segoe UI';
+	font-size: 32px;
+	font-weight: 300;
+	letter-spacing: 1px;
+
+	color: #fff;
+}
+#header p {
+	margin: 10px 0;
+}
+
+.header-shadow {
+	height: 1px;
+}
+
+#content a {
+	text-decoration: underline;
+	color: #219cc8;
+}
+#content a:hover {
+	color: #4fd7b1;
+}
+
+#content {
+	width: 100%;
+	min-height: 50%;
+}
+
+#footer {
+
+}
+
+.large-basic-container {
+	margin: auto;
+	width: 1000px;
+}
+
+.medium-basic-container {
+	margin: auto;
+	width: 750px;
+}
+
+.small-basic-container {
+	margin: auto;	
+	width: 500px;
+}
+
+.section {
+	padding: 25px 20px;
+	border-radius: 10px;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.center {
+	margin: 0 auto;
+}
+
+#load-animation {
+	margin: auto;
+	text-align: center;
+	color: #219cc8;
+	font-size: 48px;
+	text-shadow: 2px 2px #4fd7b1;
+}
+
+.section {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 10px;
+}
+
+/* Colors */
+.blue {
+	background-color: #219cc8;
+}
+
+.light-blue {
+	background-color: #01b9f5;
+}
+
+.turquoise {
+	background-color: #4fd7b1;
+}
+
+.light-green {
+	background-color: #9af56c;
+}
+
+.yellow {
+	background-color: #f1f358;	
+}
+
+.white {
+	background-color: #ffffff;	
+}
+
+.light-gray {
+	background-color: #f1f1f1;	
+}
+
+/* Styling */
+.pail-font {
+	font-family: Helvetica;
+}
+
+.light-gray-border {
+	border: solid 1px #f1f1f1;
+	border-radius: 4px;
+	padding: 10px 20px;
+}
+
+.darken-on-hover:hover {
+	filter: brightness(0.8);
+}
+
+.lighten-on-hover:hover {
+	filter: brightness(1.2);
+}
+
+/* Components */
+.darken-button {
+	padding: 7px 13px;
+}
+.darken-button:hover {
+	text-decoration: none;
+	border-radius: 3px;
+	-webkit-filter: brightness(50%); /* Safari 6.0 - 9.0 */
+	filter: brightness(50%);
+}
+.lighten-button {
+	padding: 7px 13px;
+}
+.lighten-button:hover {
+	text-decoration: none;
+	border-radius: 3px;
+	-webkit-filter: brightness(50%); /* Safari 6.0 - 9.0 */
+	filter: brightness(50%);
+}
+
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+    background-color: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-error {
+    background-color: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.button-warning {
+    background-color: rgb(223, 117, 20); /* this is an orange */
+}
+
+.button-secondary {
+    background-color: rgb(66, 184, 221); /* this is a light blue */
+}
