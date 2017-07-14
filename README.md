@@ -6,6 +6,8 @@ Pail is an app that streamlines the process of donating to fundraisers, charitie
 
 Pail allows users to create their own organizations or fundraisers to receive donations and send personal payments to any other user in the system. There's no need for external applications to bridge the two together.
 
+**The app is hosted on a free on Heroku [here](https://pure-springs-74336.herokuapp.com/). The app may take up to a minute to wake up and load on the first visit.**
+
 ## How it works
 
 Pail uses Ruby on Rails and the prescribed MVC, or Model View Controller, methodology. Some of the CSS framework is built off of <a href="https://purecss.io/">Pure.css</a>.
