@@ -14,7 +14,7 @@ Users can log in with a pre-existing account of sign up for an account. Users wi
 
 ## Installation
 
-1. Clone repo using `$ git clone https://github.com/C1-SoftwareEngineeringSummit/team1`
+1. Clone repo using `$ git clone []
 
 2. Make sure you have Ruby installed as well as Ruby on Rails. You can follow <a href="https://www.tutorialspoint.com/ruby-on-rails/rails-installation.htm">this link</a>.
 
